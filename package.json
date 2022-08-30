@@ -1,0 +1,28 @@
+{
+  "name": "css-frameworks-ca-emilbacklund",
+  "version": "1.0.0",
+  "description": "<img src=\"./.readme/noroff-light.png\" width=\"160\" align=\"right\">",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noroff-Fagskole/css-frameworks-ca-EmilBacklund.git"
+  },
+  "author": "Emil Backlund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Noroff-Fagskole/css-frameworks-ca-EmilBacklund/issues"
+  },
+  "homepage": "https://github.com/Noroff-Fagskole/css-frameworks-ca-EmilBacklund#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8",
+    "vite": "^3.0.9"
+  }
+}
