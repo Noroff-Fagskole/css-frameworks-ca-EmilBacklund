@@ -1,7 +1,13 @@
 module.exports = {
-  content: ["./*.{html,js}"],
+  content: ['./*.{html,js}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        kanit: ['Kanit', 'sans-serif'],
+        julius: ['Julius Sans One', 'sans-serif'],
+        josefin: ['Josefin Sans', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
