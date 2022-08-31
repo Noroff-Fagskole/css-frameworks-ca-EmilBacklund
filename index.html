@@ -4,10 +4,115 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Julius+Sans+One&family=Kanit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>CA CSS Framework</title>
   </head>
   <body>
-    <h1 class="text-5xl">Test</h1>
+    <div class="flex">
+      <div class="container md:w-full h-screen bg-[#282828] relative w-0">
+        <h1
+          class="font-julius text-2xl text-white absolute top-[15%] left-1/2 -translate-x-1/2"
+        >
+          ARTFRIENDER
+        </h1>
+        <svg
+          class="absolute inset-2/4 -translate-y-1/2 -translate-x-1/2"
+          width="289"
+          height="288"
+          viewBox="0 0 289 288"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="192"
+            height="191.646"
+            transform="matrix(-1 0 0 1 192 0)"
+            fill="#BC4848"
+          />
+          <rect
+            width="192"
+            height="192"
+            transform="matrix(-1 0 0 1 239.998 47.646)"
+            fill="#BC4848"
+            fill-opacity="0.5"
+          />
+          <rect
+            width="192"
+            height="192"
+            transform="matrix(-1 0 0 1 288.004 95.999)"
+            fill="#BC4848"
+            fill-opacity="0.25"
+          />
+        </svg>
+      </div>
+      <div class="md:container w-full h-screen bg-[#F0F2F5] relative">
+        <div class="flex gap-5 justify-center mt-[168px]">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="21.3332"
+              height="21.2938"
+              transform="matrix(-1 0 0 1 21.333 0)"
+              fill="#BC4848"
+            />
+            <rect
+              width="21.3332"
+              height="21.3332"
+              transform="matrix(-1 0 0 1 26.666 5.29395)"
+              fill="#BC4848"
+              fill-opacity="0.5"
+            />
+            <rect
+              width="21.3332"
+              height="21.3332"
+              transform="matrix(-1 0 0 1 32 10.6665)"
+              fill="#BC4848"
+              fill-opacity="0.25"
+            />
+          </svg>
+          <p class="font-kanit text-xl">Join Artfriender Today</p>
+        </div>
+        <div
+          class="bg-white p-5 max-w-[400px] w-full rounded absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 shadow-xl"
+        >
+          <form action="" class="flex flex-col gap-5 font-josefin">
+            <input
+              class="w-full border border-[#868686] rounded h-[38px] indent-2"
+              placeholder="Email adress"
+              name="email"
+              id="email"
+            />
+            <input
+              class="w-full border border-[#868686] rounded h-[38px] indent-2"
+              placeholder="Password"
+              type="password"
+              name="password"
+              id="password"
+            />
+            <a
+              class="bg-[#4862BC] text-white h-[38px] rounded w-full text-center leading-[38px]"
+              href="homepage.html"
+            >
+              Log In
+            </a>
+            <a href="#" class="text-center underline">Forgot Password?</a>
+            <button class="bg-[#00B468] text-white h-[38px] rounded">
+              Create Account
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
