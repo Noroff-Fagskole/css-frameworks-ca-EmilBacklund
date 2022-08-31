@@ -7,6 +7,9 @@ module.exports = {
         julius: ['Julius Sans One', 'sans-serif'],
         josefin: ['Josefin Sans', 'sans-serif'],
       },
+      screens: {
+        xsm: '570px',
+      },
     },
   },
   plugins: [],
