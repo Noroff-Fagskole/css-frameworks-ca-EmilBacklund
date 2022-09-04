@@ -117,13 +117,32 @@
         </div>
       </div>
       <div
-        class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#212121] font-kanit text-sm font-normal text-white h-[681px] hidden"
+        class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#212121] font-kanit text-sm font-normal text-white xsm:h-[681px] h-[722px] hidden"
         id="modal"
       >
-        <div class="w-full max-w-[428px] h-full">
+        <div class="w-full max-w-[428px] h-full relative">
+          <div class="absolute bg-black w-full h-full opacity-50"></div>
           <img class="h-full object-cover" src="svg/tokyo.jpg" alt="" />
+          <p
+            class="absolute text-[40px] top-[86px] w-[236px] leading-[50px] left-[61px] font-medium"
+          >
+            FIND GREAT ART BY CREATIVE PEOPLE IN OUR COMMUNITY
+          </p>
+          <p
+            class="absolute left-[61px] bottom-[150px] w-[306px] leading-[30px] font-light text-xl"
+          >
+            Get access to a large library of art and discover new artists.
+            <br />
+            Promote, sell, get publicity and reach new audience.
+          </p>
+          <div class="absolute bottom-5 left-[61px]">
+            <p class="text-[#CFCFCF]">ART BY</p>
+            <p>albertourra</p>
+          </div>
         </div>
-        <div class="p-5 w-full max-w-[428px] h-full min-w-[362px] relative">
+        <div
+          class="p-5 w-full max-w-[428px] h-full xsm:min-w-[362px] min-w-[320px] relative z-50 bg-[#212121]"
+        >
           <img
             id="close"
             class="absolute right-5 top-5 cursor-pointer"
