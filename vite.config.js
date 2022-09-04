@@ -1,9 +1,6 @@
-import { resolve } from 'path';
-
 const path = require('path');
 
 export default {
-  root: path.resolve(__dirname, 'src'),
   build: {
     rollupOptions: {
       input: {
@@ -12,7 +9,6 @@ export default {
         profilepage: path.resolve(__dirname, 'profilepage.html'),
       },
     },
-    outDir: '/dist',
   },
   resolve: {
     alias: {},
