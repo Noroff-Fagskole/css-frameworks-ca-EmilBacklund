@@ -106,13 +106,117 @@
               Log In
             </a>
             <a href="#" class="text-center underline">Forgot Password?</a>
-            <button class="bg-[#00B468] text-white h-[38px] rounded">
+            <button
+              data-modal-target="#modal"
+              id="openModal"
+              class="bg-[#00B468] text-white h-[38px] rounded"
+            >
               Create Account
             </button>
           </form>
         </div>
       </div>
+      <div
+        class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#212121] font-kanit text-sm font-normal text-white h-[681px] hidden"
+        id="modal"
+      >
+        <div class="w-full max-w-[428px] h-full">
+          <img class="h-full object-cover" src="svg/tokyo.jpg" alt="" />
+        </div>
+        <div class="p-5 w-full max-w-[428px] h-full min-w-[362px] relative">
+          <img
+            id="close"
+            class="absolute right-5 top-5 cursor-pointer"
+            src="svg/close.svg"
+            alt=""
+          />
+          <div class="flex flex-col gap-5 mb-8">
+            <div class="flex gap-2 justify-center h-">
+              <img class="" src="svg/logo.svg" alt="" />
+              <p class="text-xl font-medium">Join Artfriender today</p>
+            </div>
+            <div>
+              <p class="text-base text-[#BC4848]">Sign up</p>
+              <div class="flex">
+                <div class="h-px min-w-[55px] bg-[#BC4848]"></div>
+                <div class="w-full h-px bg-[#323232]"></div>
+              </div>
+            </div>
+            <p class="font-light">
+              Creating an account allows you to post your own content, comment
+              on other’s posts, creating lists with your favourite art, and much
+              more.
+            </p>
+            <div>
+              <p>Username</p>
+              <input
+                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                type="text"
+                name="username"
+                id="username"
+              />
+            </div>
+            <div>
+              <p>Password</p>
+              <input
+                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                type="password"
+                name="password"
+                id="password"
+              />
+            </div>
+            <div>
+              <p>Confirm Password</p>
+              <input
+                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                type="password"
+                name="confirm-password"
+                id="confirmPassword"
+              />
+            </div>
+            <div>
+              <p>Date of Birth</p>
+              <div class="flex gap-2">
+                <input
+                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                  type="text"
+                  placeholder="Day"
+                />
+                <input
+                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                  type="text"
+                  placeholder="Month"
+                />
+                <input
+                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                  type="text"
+                  placeholder="Year"
+                />
+              </div>
+            </div>
+            <div>
+              <p>Email</p>
+              <input
+                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                type="email"
+                name="email"
+                id="email"
+              />
+            </div>
+          </div>
+          <p class="font-light text-center mb-8">
+            By clicking Sign Up, you are agreeing to Artfriender's <br />
+            <span class="text-[#BC4848] cursor-pointer">Terms of Service.</span>
+          </p>
+          <a href="homepage.html"
+            ><button class="w-full h-[30px] rounded-[6.4px] bg-[#BC4848]">
+              Sign Up
+            </button></a
+          >
+        </div>
+      </div>
     </div>
     <script type="module" src="/main.js"></script>
+    <script src="login-modal.js"></script>
   </body>
 </html>

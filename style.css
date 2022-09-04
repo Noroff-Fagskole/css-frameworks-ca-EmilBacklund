@@ -21,3 +21,7 @@
   background: #dc5656;
   cursor: pointer;
 }
+
+.modal-active {
+  display: flex;
+}
