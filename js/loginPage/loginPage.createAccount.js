@@ -1,3 +1,5 @@
+export { openModal, closeModal };
+
 const modalSelection = document.querySelector('#modal');
 const closeModalButton = document.querySelector('#close');
 const openModalButton = document.querySelector('#openModal');
