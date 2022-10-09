@@ -12,230 +12,696 @@
     />
     <title>CA CSS Framework</title>
   </head>
-  <body>
-    <div class="flex">
-      <div class="container md:w-full h-screen bg-[#282828] relative w-0">
-        <h1
-          class="font-julius text-2xl text-white absolute top-[15%] left-1/2 -translate-x-1/2"
-        >
-          ARTFRIENDER
-        </h1>
-        <svg
-          class="absolute inset-2/4 -translate-y-1/2 -translate-x-1/2"
-          width="289"
-          height="288"
-          viewBox="0 0 289 288"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            width="192"
-            height="191.646"
-            transform="matrix(-1 0 0 1 192 0)"
-            fill="#BC4848"
-          />
-          <rect
-            width="192"
-            height="192"
-            transform="matrix(-1 0 0 1 239.998 47.646)"
-            fill="#BC4848"
-            fill-opacity="0.5"
-          />
-          <rect
-            width="192"
-            height="192"
-            transform="matrix(-1 0 0 1 288.004 95.999)"
-            fill="#BC4848"
-            fill-opacity="0.25"
-          />
-        </svg>
-      </div>
-      <div class="md:container w-full h-screen bg-[#F0F2F5] relative">
-        <div class="flex gap-5 justify-center mt-[168px]">
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect
-              width="21.3332"
-              height="21.2938"
-              transform="matrix(-1 0 0 1 21.333 0)"
-              fill="#BC4848"
-            />
-            <rect
-              width="21.3332"
-              height="21.3332"
-              transform="matrix(-1 0 0 1 26.666 5.29395)"
-              fill="#BC4848"
-              fill-opacity="0.5"
-            />
-            <rect
-              width="21.3332"
-              height="21.3332"
-              transform="matrix(-1 0 0 1 32 10.6665)"
-              fill="#BC4848"
-              fill-opacity="0.25"
-            />
-          </svg>
-          <p class="font-kanit text-xl">Join Artfriender Today</p>
-        </div>
-        <div
-          class="bg-white p-5 max-w-[400px] w-full rounded absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 shadow-xl"
-        >
-          <form action="" class="flex flex-col gap-5 font-josefin">
-            <input
-              class="w-full border border-[#868686] rounded h-[38px] indent-2"
-              placeholder="Email adress"
-              name="email"
-              id="email"
-            />
-            <input
-              class="w-full border border-[#868686] rounded h-[38px] indent-2"
-              placeholder="Password"
-              type="password"
-              name="password"
-              id="password"
-            />
-            <a
-              class="bg-[#4862BC] text-white h-[38px] rounded w-full text-center leading-[38px]"
-              href="homepage.html"
-            >
-              Log In
-            </a>
-            <a href="#" class="text-center underline">Forgot Password?</a>
-            <button
-              data-modal-target="#modal"
-              id="openModal"
-              class="bg-[#00B468] text-white h-[38px] rounded"
-            >
-              Create Account
-            </button>
-          </form>
-        </div>
-      </div>
+  <body class="bg-[#1A1A1A] text-white font-josefin mb-5">
+    <div
+      class="fixed z-10 hidden xl:flex h-24 max-w-[1240px] w-[90%] mx-auto bg-[#1A1A1A] left-1/2 -translate-x-1/2"
+    >
+      <input
+        class="absolute top-1/2 -translate-y-1/2 max-w-[295px] min-w-[295px] h-10 rounded-[10px] bg-[#282828] indent-10"
+        type="search"
+        placeholder="Search.."
+      />
+      <img
+        class="absolute top-1/2 -translate-y-1/2 left-2"
+        src="svg/search_pc.svg"
+        alt=""
+      />
       <div
-        class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#212121] font-kanit text-sm font-normal text-white xsm:h-[681px] h-[722px] hidden"
-        id="modal"
+        class="absolute left-1/2 -translate-x-1/2 flex gap-7 top-1/2 -translate-y-1/2"
       >
-        <div class="w-full max-w-[428px] h-full relative">
-          <div class="absolute bg-black w-full h-full opacity-50"></div>
-          <img class="h-full object-cover" src="svg/tokyo.jpg" alt="" />
-          <p
-            class="absolute text-[40px] top-[86px] w-[236px] leading-[50px] left-[61px] font-medium"
-          >
-            FIND GREAT ART BY CREATIVE PEOPLE IN OUR COMMUNITY
-          </p>
-          <p
-            class="absolute left-[61px] bottom-[150px] w-[306px] leading-[30px] font-light text-xl"
-          >
-            Get access to a large library of art and discover new artists.
-            <br />
-            Promote, sell, get publicity and reach new audience.
-          </p>
-          <div class="absolute bottom-5 left-[61px]">
-            <p class="text-[#CFCFCF]">ART BY</p>
-            <p>albertourra</p>
-          </div>
+        <img class="cursor-pointer" src="svg/home_active.svg" alt="" />
+        <img class="cursor-pointer" src="svg/message.svg" alt="" />
+        <img class="cursor-pointer" src="svg/notification.svg" alt="" />
+        <img class="cursor-pointer" src="svg/heart.svg" alt="" />
+      </div>
+      <a
+        href="index.html"
+        class="cursor-pointer flex gap-2 absolute right-[193.51px] translate-x-1/2 top-1/2 -translate-y-1/2"
+      >
+        <p class="font-julius text-2xl">ARTFRIENDER</p>
+        <img src="svg/logo.svg" alt="" />
+      </a>
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer">
+        <a href="login.html"><img src="svg/logout.svg" alt="" /></a>
+      </div>
+    </div>
+    <div
+      class="h-20 xl:hidden fixed top-0 bg-[#1A1A1A] max-w-[1240px] w-full z-10"
+    >
+      <div
+        class="absolute flex justify-between max-w-[1240px] ml-2 mx-auto sm:w-[90%] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full sm:ml-0"
+      >
+        <div class="flex gap-2">
+          <img src="svg/logo.svg" alt="" />
+          <img src="svg/search.svg" alt="" />
+          <img src="svg/menu.svg" alt="" />
         </div>
-        <div
-          class="p-5 w-full max-w-[428px] h-full xsm:min-w-[362px] min-w-[320px] relative z-50 bg-[#212121]"
-        >
-          <img
-            id="close"
-            class="absolute right-5 top-5 cursor-pointer"
-            src="svg/close.svg"
-            alt=""
-          />
-          <div class="flex flex-col gap-5 mb-8">
-            <div class="flex gap-2 justify-center h-">
-              <img class="" src="svg/logo.svg" alt="" />
-              <p class="text-xl font-medium">Join Artfriender today</p>
-            </div>
-            <div>
-              <p class="text-base text-[#BC4848]">Sign up</p>
-              <div class="flex">
-                <div class="h-px min-w-[55px] bg-[#BC4848]"></div>
-                <div class="w-full h-px bg-[#323232]"></div>
-              </div>
-            </div>
-            <p class="font-light">
-              Creating an account allows you to post your own content, comment
-              on other’s posts, creating lists with your favourite art, and much
-              more.
-            </p>
-            <div>
-              <p>Username</p>
-              <input
-                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                type="text"
-                name="username"
-                id="username"
-              />
-            </div>
-            <div>
-              <p>Password</p>
-              <input
-                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                type="password"
-                name="password"
-                id="password"
-              />
-            </div>
-            <div>
-              <p>Confirm Password</p>
-              <input
-                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                type="password"
-                name="confirm-password"
-                id="confirmPassword"
-              />
-            </div>
-            <div>
-              <p>Date of Birth</p>
-              <div class="flex gap-2">
-                <input
-                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                  type="text"
-                  placeholder="Day"
-                />
-                <input
-                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                  type="text"
-                  placeholder="Month"
-                />
-                <input
-                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                  type="text"
-                  placeholder="Year"
-                />
-              </div>
-            </div>
-            <div>
-              <p>Email</p>
-              <input
-                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                type="email"
-                name="email"
-                id="email"
-              />
-            </div>
-          </div>
-          <p class="font-light text-center mb-8">
-            By clicking Sign Up, you are agreeing to Artfriender's <br />
-            <span class="text-[#BC4848] cursor-pointer">Terms of Service.</span>
-          </p>
-          <a href="homepage.html"
-            ><button class="w-full h-[30px] rounded-[6.4px] bg-[#BC4848]">
-              Sign Up
-            </button></a
-          >
+        <div class="flex gap-2 -translate-x-5 sm:-translate-x-0">
+          <img src="svg/message.svg" alt="" />
+          <img src="svg/notification.svg" alt="" />
+          <img src="svg/king_frog.svg" alt="" />
         </div>
       </div>
     </div>
-    <script type="module" src="js/main.js"></script>
-    <script src="js/loginPage/loginPage.createAccount.js" type="modul"></script>
+
+    <div
+      class="sm:flex gap-5 max-w-[1240px] mx-auto sm:w-[90%] xl:translate-y-24 translate-y-20"
+    >
+      <div
+        class="sm:flex flex-col max-w-[295px] min-w-[295px] w-full hidden gap-5"
+      >
+        <div
+          class="sticky top-0 min-h-[320px] bg-[#282828] rounded-[20px] overflow-hidden"
+        >
+          <img
+            class="h-1/2 object-cover w-full"
+            src="svg/banner_img.svg"
+            alt=""
+          />
+          <img
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            src="svg/king_frog_lg.svg"
+            alt=""
+          />
+          <div class="relative w-full h-1/2 p-5 leading-4">
+            <div class="flex justify-between">
+              <div class="flex flex-col justify-center items-center">
+                <p>596</p>
+                <p class="text-sm text-[#868686]">Followers</p>
+              </div>
+              <div class="flex flex-col justify-center items-center">
+                <p>402</p>
+                <p class="text-sm text-[#868686]">Following</p>
+              </div>
+            </div>
+            <div class="flex flex-col items-center">
+              <p class="mb-1">Emil Backlund</p>
+              <p class="text-sm text-[#868686]">@KingFrog</p>
+            </div>
+            <a
+              class="absolute left-5 bg-[#BC4848] w-[calc(100%-40px)] h-[38px] rounded-[10px] text-center leading-[38px]"
+              href="/profilepage.html"
+              >My Profile</a
+            >
+          </div>
+        </div>
+        <div
+          class="sticky top-[340px] scrollbar overflow-y-scroll text-sm p-5 max-w-[295px] w-full rounded-[20px] h-[calc(100vh-440px)] xl:h-[calc(100vh-456px)] bg-[#282828]"
+        >
+          <p class="text-base">Contacts</p>
+          <div class="w-full h-0.5 bg-[#2C2C2C] my-2"></div>
+          <div class="flex flex-col gap-5 leading-[14px]">
+            <div class="flex items-center gap-5">
+              <img src="svg/favourite_active.svg" alt="" />
+              <p class="text-[#868686]">Favourites</p>
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/alex_phile.svg" alt="" />
+                <p>Alex Phile</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_active.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/rachelle_nona.svg" alt="" />
+                <p>Rachelle Nona</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_active.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/gladwin_keith.svg" alt="" />
+                <p>Gladwin Keith</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_active.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/ivar_patritsiya.svg" alt="" />
+                <p>Ivar Patritsiya</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_active.svg"
+                alt=""
+              />
+            </div>
+            <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/rama_melville.svg" alt="" />
+                <p>Rama Melville</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/matilda_hoshi.svg" alt="" />
+                <p>Matilda Hoshi</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/edvard_keara.svg" alt="" />
+                <p>Edvard Keara</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/clara_sanaa.svg" alt="" />
+                <p>Clara Sanaa</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/simona_metody.svg" alt="" />
+                <p>Simona Metody</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Middle section -->
+      <div class="min-w-0 flex-1">
+        <div class="mx-2 mb-2 sm:mx-0">
+          <p>Story</p>
+          <div class="flex gap-5 overflow-x-scroll mb-6 scrollbar">
+            <div class="min-w-[100px]">
+              <img
+                class="object-cover w-[100px]"
+                src="svg/story_1.svg"
+                alt=""
+              />
+              <p class="text-center">Eva</p>
+            </div>
+            <div class="min-w-[100px]">
+              <img
+                class="object-cover w-[100px]"
+                src="svg/story_2.svg"
+                alt=""
+              />
+              <p class="text-center">Emma</p>
+            </div>
+            <div class="min-w-[100px]">
+              <img
+                class="object-cover w-[100px]"
+                src="svg/story_3.svg"
+                alt=""
+              />
+              <p class="text-center">Johan</p>
+            </div>
+            <div class="min-w-[100px]">
+              <img
+                class="object-cover w-[100px]"
+                src="svg/story_4.svg"
+                alt=""
+              />
+              <p class="text-center">George</p>
+            </div>
+            <div class="min-w-[100px]">
+              <img
+                class="object-cover w-[100px]"
+                src="svg/story_5.svg"
+                alt=""
+              />
+              <p class="text-center">Alex</p>
+            </div>
+            <div class="min-w-[100px]">
+              <img
+                class="object-cover w-[100px]"
+                src="svg/story_6.svg"
+                alt=""
+              />
+              <p class="text-center">Jonas</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 sm:gap-5">
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] xl:px-5">
+            <div class="flex flex-col gap-2 xl:gap-[18px]">
+              <div class="flex gap-2 xl:gap-5">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Share something with your friends.."
+                />
+              </div>
+              <div class="w-full h-0.5 bg-[#2C2C2C] xl:hidden"></div>
+              <div
+                class="flex justify-between text-sm xsm:text-base gap-2 flex-wrap"
+              >
+                <div
+                  class="flex px-2 bg-[#222222] py-2.5 rounded-[10px] gap-2 xl:px-5"
+                >
+                  <img src="svg/photo.svg" alt="" />
+                  <p>Photo</p>
+                </div>
+                <div
+                  class="flex px-2 bg-[#222222] py-2.5 rounded-[10px] gap-2 xl:px-5"
+                >
+                  <img src="svg/video.svg" alt="" />
+                  <p>Video</p>
+                </div>
+                <div
+                  class="flex px-2 bg-[#222222] py-2.5 rounded-[10px] gap-2 xl:px-5"
+                >
+                  <img src="svg/poll.svg" alt="" />
+                  <p>Poll</p>
+                </div>
+                <div
+                  class="flex px-2 bg-[#222222] py-2.5 rounded-[10px] gap-2 xl:px-5"
+                >
+                  <img src="svg/live.svg" alt="" />
+                  <p>Live</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
+            <p class="mb-2">Feed</p>
+            <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
+            <div class="flex flex-col gap-2 xl:gap-5">
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/rachelle.svg" alt="" />
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex gap-2 xl:gap-5">
+                      <p>Rachelle Nona</p>
+                      <img src="svg/favourite_active.svg" alt="" />
+                    </div>
+                    <p class="text-sm text-[#868686]">@CuteOwl</p>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <div
+                      class="w-[5px] h-[5px] bg-[#BC4848] rounded-[5px]"
+                    ></div>
+                    <p class="text-[#BC4848]">2 hours ago</p>
+                  </div>
+                </div>
+                <img
+                  class="absolute top-0 right-0"
+                  src="svg/kebab_menu.svg"
+                  alt=""
+                />
+              </div>
+              <p>Just curious what do you use most, flexbox or CSS grid?</p>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[81.2%] bg-[#bc4848]/[0.812] items-center flex rounded"
+                >
+                  <p class="ml-2">Flexbox</p>
+                </div>
+                <p>81.2%</p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[18.8%] bg-[#bc4848]/[0.188] items-center flex rounded"
+                >
+                  <p class="ml-2">Grid</p>
+                </div>
+                <p>18.8%</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-[#868686] text-sm">
+                  <p>2,726 votes</p>
+                  <div class="w-[5px] h-[5px] bg-[#868686] rounded-[5px]"></div>
+                  <p>Final results</p>
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+                <div class="flex gap-2 xl:gap-5">
+                  <img src="svg/heart_active.svg" alt="" />
+                  <img src="svg/share.svg" alt="" />
+                  <img src="svg/something.svg" alt="" />
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+              </div>
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Write something.."
+                />
+                <img
+                  class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
+                  src="svg/add_photo.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
+            <p class="mb-2">Feed</p>
+            <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
+            <div class="flex flex-col gap-2 xl:gap-5">
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/rachelle.svg" alt="" />
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex gap-2 xl:gap-5">
+                      <p>Rachelle Nona</p>
+                      <img src="svg/favourite_active.svg" alt="" />
+                    </div>
+                    <p class="text-sm text-[#868686]">@CuteOwl</p>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <div
+                      class="w-[5px] h-[5px] bg-[#BC4848] rounded-[5px]"
+                    ></div>
+                    <p class="text-[#BC4848]">2 hours ago</p>
+                  </div>
+                </div>
+                <img
+                  class="absolute top-0 right-0"
+                  src="svg/kebab_menu.svg"
+                  alt=""
+                />
+              </div>
+              <p>Just curious what do you use most, flexbox or CSS grid?</p>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[81.2%] bg-[#bc4848]/[0.812] items-center flex rounded"
+                >
+                  <p class="ml-2">Flexbox</p>
+                </div>
+                <p>81.2%</p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[18.8%] bg-[#bc4848]/[0.188] items-center flex rounded"
+                >
+                  <p class="ml-2">Grid</p>
+                </div>
+                <p>18.8%</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-[#868686] text-sm">
+                  <p>2,726 votes</p>
+                  <div class="w-[5px] h-[5px] bg-[#868686] rounded-[5px]"></div>
+                  <p>Final results</p>
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+                <div class="flex gap-2 xl:gap-5">
+                  <img src="svg/heart_active.svg" alt="" />
+                  <img src="svg/share.svg" alt="" />
+                  <img src="svg/something.svg" alt="" />
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+              </div>
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Write something.."
+                />
+                <img
+                  class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
+                  src="svg/add_photo.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
+            <p class="mb-2">Feed</p>
+            <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
+            <div class="flex flex-col gap-2 xl:gap-5">
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/rachelle.svg" alt="" />
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex gap-2 xl:gap-5">
+                      <p>Rachelle Nona</p>
+                      <img src="svg/favourite_active.svg" alt="" />
+                    </div>
+                    <p class="text-sm text-[#868686]">@CuteOwl</p>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <div
+                      class="w-[5px] h-[5px] bg-[#BC4848] rounded-[5px]"
+                    ></div>
+                    <p class="text-[#BC4848]">2 hours ago</p>
+                  </div>
+                </div>
+                <img
+                  class="absolute top-0 right-0"
+                  src="svg/kebab_menu.svg"
+                  alt=""
+                />
+              </div>
+              <p>Just curious what do you use most, flexbox or CSS grid?</p>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[81.2%] bg-[#bc4848]/[0.812] items-center flex rounded"
+                >
+                  <p class="ml-2">Flexbox</p>
+                </div>
+                <p>81.2%</p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[18.8%] bg-[#bc4848]/[0.188] items-center flex rounded"
+                >
+                  <p class="ml-2">Grid</p>
+                </div>
+                <p>18.8%</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-[#868686] text-sm">
+                  <p>2,726 votes</p>
+                  <div class="w-[5px] h-[5px] bg-[#868686] rounded-[5px]"></div>
+                  <p>Final results</p>
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+                <div class="flex gap-2 xl:gap-5">
+                  <img src="svg/heart_active.svg" alt="" />
+                  <img src="svg/share.svg" alt="" />
+                  <img src="svg/something.svg" alt="" />
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+              </div>
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Write something.."
+                />
+                <img
+                  class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
+                  src="svg/add_photo.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
+            <p class="mb-2">Feed</p>
+            <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
+            <div class="flex flex-col gap-2 xl:gap-5">
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/rachelle.svg" alt="" />
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex gap-2 xl:gap-5">
+                      <p>Rachelle Nona</p>
+                      <img src="svg/favourite_active.svg" alt="" />
+                    </div>
+                    <p class="text-sm text-[#868686]">@CuteOwl</p>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <div
+                      class="w-[5px] h-[5px] bg-[#BC4848] rounded-[5px]"
+                    ></div>
+                    <p class="text-[#BC4848]">2 hours ago</p>
+                  </div>
+                </div>
+                <img
+                  class="absolute top-0 right-0"
+                  src="svg/kebab_menu.svg"
+                  alt=""
+                />
+              </div>
+              <p>Just curious what do you use most, flexbox or CSS grid?</p>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[81.2%] bg-[#bc4848]/[0.812] items-center flex rounded"
+                >
+                  <p class="ml-2">Flexbox</p>
+                </div>
+                <p>81.2%</p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[18.8%] bg-[#bc4848]/[0.188] items-center flex rounded"
+                >
+                  <p class="ml-2">Grid</p>
+                </div>
+                <p>18.8%</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-[#868686] text-sm">
+                  <p>2,726 votes</p>
+                  <div class="w-[5px] h-[5px] bg-[#868686] rounded-[5px]"></div>
+                  <p>Final results</p>
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+                <div class="flex gap-2 xl:gap-5">
+                  <img src="svg/heart_active.svg" alt="" />
+                  <img src="svg/share.svg" alt="" />
+                  <img src="svg/something.svg" alt="" />
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+              </div>
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Write something.."
+                />
+                <img
+                  class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
+                  src="svg/add_photo.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Recent Activity -->
+      <div
+        class="sticky top-0 h-[calc(100vh-100px)] xl:h-[calc(100vh-116px)] scrollbar overflow-y-scroll leading-[14px] hidden text-sm xl:flex flex-col gap-2 min-w-[295px] bg-[#282828] rounded-[20px] p-5"
+      >
+        <div>
+          <p class="leading-[16px] text-base">Recent Activity</p>
+          <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between">
+              <div class="flex items-center gap-2">
+                <img src="svg/rachelle_nona.svg" alt="" />
+                <p>Rachelle Nona</p>
+              </div>
+              <img src="svg/favourite_active.svg" alt="" />
+            </div>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <p>Is now open for commission</p>
+              <p>Price range 20$ - 75$</p>
+            </div>
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              Have a look
+            </button>
+          </div>
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between">
+              <div class="flex items-center gap-2">
+                <img src="svg/matilda_hoshi.svg" alt="" />
+                <p>Matilda Hoshi</p>
+              </div>
+              <img src="svg/favourite_unchecked.svg" alt="" />
+            </div>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <div class="flex gap-2">
+                <p>Is now live</p>
+                <img src="svg/live.svg" alt="" />
+              </div>
+              <p>Time spent streaming 0:04:43</p>
+            </div>
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              Watch
+            </button>
+          </div>
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between">
+              <div class="flex items-center gap-2">
+                <img src="svg/rama_melville.svg" alt="" />
+                <p>Rama Melville</p>
+              </div>
+              <img src="svg/favourite_unchecked.svg" alt="" />
+            </div>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <p>Is still open for commission</p>
+              <p>Price range 5$ - 10$</p>
+            </div>
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              Have a look
+            </button>
+          </div>
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <img src="svg/ivar_patritsiya.svg" alt="" />
+                <p>Ivar Patritsiya</p>
+              </div>
+              <img src="svg/favourite_active.svg" alt="" />
+            </div>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <p>Ivar’s post is trending</p>
+              <p>11k likes</p>
+            </div>
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              See post
+            </button>
+          </div>
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <img src="svg/edvard_keara.svg" alt="" />
+                <p>Edvard Keara</p>
+              </div>
+              <img src="svg/favourite_unchecked.svg" alt="" />
+            </div>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <p>Is now open for commission</p>
+              <p>Price range 20$ - 75$</p>
+            </div>
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              Have a look
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="js/index.js" defer></script>
   </body>
 </html>

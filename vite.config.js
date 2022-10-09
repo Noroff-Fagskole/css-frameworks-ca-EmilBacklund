@@ -4,8 +4,8 @@ export default {
   build: {
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'index.html'),
-        homepage: path.resolve(__dirname, 'homepage.html'),
+        main: path.resolve(__dirname, 'login.html'),
+        homepage: path.resolve(__dirname, 'index.html'),
         profilepage: path.resolve(__dirname, 'profilepage.html'),
       },
     },
