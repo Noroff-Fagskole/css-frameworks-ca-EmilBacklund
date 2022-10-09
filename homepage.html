@@ -14,10 +14,10 @@
   </head>
   <body class="bg-[#1A1A1A] text-white font-josefin mb-5">
     <div
-      class="relative hidden xl:flex my-[28px] max-w-[1240px] w-[90%] mx-auto"
+      class="fixed z-10 hidden xl:flex h-24 max-w-[1240px] w-[90%] mx-auto bg-[#1A1A1A] left-1/2 -translate-x-1/2"
     >
       <input
-        class="max-w-[295px] min-w-[295px] h-10 rounded-[10px] bg-[#282828] indent-10"
+        class="absolute top-1/2 -translate-y-1/2 max-w-[295px] min-w-[295px] h-10 rounded-[10px] bg-[#282828] indent-10"
         type="search"
         placeholder="Search.."
       />
@@ -26,7 +26,9 @@
         src="svg/search_pc.svg"
         alt=""
       />
-      <div class="absolute left-1/2 -translate-x-1/2 flex gap-7">
+      <div
+        class="absolute left-1/2 -translate-x-1/2 flex gap-7 top-1/2 -translate-y-1/2"
+      >
         <img class="cursor-pointer" src="svg/home_active.svg" alt="" />
         <img class="cursor-pointer" src="svg/message.svg" alt="" />
         <img class="cursor-pointer" src="svg/notification.svg" alt="" />
@@ -34,33 +36,42 @@
       </div>
       <a
         href="homepage.html"
-        class="cursor-pointer flex gap-2 absolute right-[147.5px] translate-x-1/2"
+        class="cursor-pointer flex gap-2 absolute right-[193.51px] translate-x-1/2 top-1/2 -translate-y-1/2"
       >
         <p class="font-julius text-2xl">ARTFRIENDER</p>
         <img src="svg/logo.svg" alt="" />
       </a>
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer">
+        <a href="index.html"><img src="svg/logout.svg" alt="" /></a>
+      </div>
     </div>
     <div
-      class="flex justify-between mx-2 my-6 max-w-[1240px] sm:mx-auto sm:w-[90%] xl:hidden"
+      class="h-20 xl:hidden fixed top-0 bg-[#1A1A1A] max-w-[1240px] w-full z-10"
     >
-      <div class="flex gap-2">
-        <img src="svg/logo.svg" alt="" />
-        <img src="svg/search.svg" alt="" />
-        <img src="svg/menu.svg" alt="" />
-      </div>
-      <div class="flex gap-2">
-        <img src="svg/message.svg" alt="" />
-        <img src="svg/notification.svg" alt="" />
-        <img src="svg/king_frog.svg" alt="" />
+      <div
+        class="absolute flex justify-between max-w-[1240px] ml-2 mx-auto sm:w-[90%] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full sm:ml-0"
+      >
+        <div class="flex gap-2">
+          <img src="svg/logo.svg" alt="" />
+          <img src="svg/search.svg" alt="" />
+          <img src="svg/menu.svg" alt="" />
+        </div>
+        <div class="flex gap-2 -translate-x-5 sm:-translate-x-0">
+          <img src="svg/message.svg" alt="" />
+          <img src="svg/notification.svg" alt="" />
+          <img src="svg/king_frog.svg" alt="" />
+        </div>
       </div>
     </div>
 
-    <div class="sm:flex gap-5 max-w-[1240px] mx-auto sm:w-[90%]">
+    <div
+      class="sm:flex gap-5 max-w-[1240px] mx-auto sm:w-[90%] xl:translate-y-24 translate-y-20"
+    >
       <div
-        class="sm:flex flex-col max-w-[295px] min-w-[295px] w-full hidden gap-5 h-[calc(100vh-100px)] xl:h-[calc(100vh-116px)]"
+        class="sm:flex flex-col max-w-[295px] min-w-[295px] w-full hidden gap-5"
       >
         <div
-          class="relative w-full min-h-[320px] bg-[#282828] rounded-[20px] overflow-hidden"
+          class="sticky top-0 min-h-[320px] bg-[#282828] rounded-[20px] overflow-hidden"
         >
           <img
             class="h-1/2 object-cover w-full"
@@ -88,14 +99,14 @@
               <p class="text-sm text-[#868686]">@KingFrog</p>
             </div>
             <a
-              class="absolute left-5 bottom-5 bg-[#BC4848] w-[calc(100%-40px)] h-[38px] rounded-[10px] text-center leading-[38px]"
+              class="absolute left-5 bg-[#BC4848] w-[calc(100%-40px)] h-[38px] rounded-[10px] text-center leading-[38px]"
               href="/profilepage.html"
               >My Profile</a
             >
           </div>
         </div>
         <div
-          class="scrollbar overflow-y-scroll text-sm p-5 max-w-[295px] w-full rounded-[20px] h-[559px] bg-[#282828]"
+          class="sticky top-[340px] scrollbar overflow-y-scroll text-sm p-5 max-w-[295px] w-full rounded-[20px] h-[calc(100vh-440px)] xl:h-[calc(100vh-456px)] bg-[#282828]"
         >
           <p class="text-base">Contacts</p>
           <div class="w-full h-0.5 bg-[#2C2C2C] my-2"></div>
@@ -207,8 +218,9 @@
           </div>
         </div>
       </div>
-      <div class="max-w-[610px]">
-        <div class="ml-2 mb-2 max-w-[610px] sm:ml-0">
+      <!-- Middle section -->
+      <div class="min-w-0 flex-1">
+        <div class="mx-2 mb-2 sm:mx-0">
           <p>Story</p>
           <div class="flex gap-5 overflow-x-scroll mb-6 scrollbar">
             <div class="min-w-[100px]">
@@ -262,9 +274,7 @@
           </div>
         </div>
         <div class="flex flex-col gap-2 sm:gap-5">
-          <div
-            class="py-5 px-2 bg-[#282828] rounded-[20px] max-w-[610px] xl:px-5"
-          >
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] xl:px-5">
             <div class="flex flex-col gap-2 xl:gap-[18px]">
               <div class="flex gap-2 xl:gap-5">
                 <img src="svg/king_frog.svg" alt="" />
@@ -275,7 +285,9 @@
                 />
               </div>
               <div class="w-full h-0.5 bg-[#2C2C2C] xl:hidden"></div>
-              <div class="flex justify-between text-sm xsm:text-base">
+              <div
+                class="flex justify-between text-sm xsm:text-base gap-2 flex-wrap"
+              >
                 <div
                   class="flex px-2 bg-[#222222] py-2.5 rounded-[10px] gap-2 xl:px-5"
                 >
@@ -303,9 +315,226 @@
               </div>
             </div>
           </div>
-          <div
-            class="py-5 px-2 bg-[#282828] rounded-[20px] max-w-[610px] sm:mx-0 xl:px-5"
-          >
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
+            <p class="mb-2">Feed</p>
+            <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
+            <div class="flex flex-col gap-2 xl:gap-5">
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/rachelle.svg" alt="" />
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex gap-2 xl:gap-5">
+                      <p>Rachelle Nona</p>
+                      <img src="svg/favourite_active.svg" alt="" />
+                    </div>
+                    <p class="text-sm text-[#868686]">@CuteOwl</p>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <div
+                      class="w-[5px] h-[5px] bg-[#BC4848] rounded-[5px]"
+                    ></div>
+                    <p class="text-[#BC4848]">2 hours ago</p>
+                  </div>
+                </div>
+                <img
+                  class="absolute top-0 right-0"
+                  src="svg/kebab_menu.svg"
+                  alt=""
+                />
+              </div>
+              <p>Just curious what do you use most, flexbox or CSS grid?</p>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[81.2%] bg-[#bc4848]/[0.812] items-center flex rounded"
+                >
+                  <p class="ml-2">Flexbox</p>
+                </div>
+                <p>81.2%</p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[18.8%] bg-[#bc4848]/[0.188] items-center flex rounded"
+                >
+                  <p class="ml-2">Grid</p>
+                </div>
+                <p>18.8%</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-[#868686] text-sm">
+                  <p>2,726 votes</p>
+                  <div class="w-[5px] h-[5px] bg-[#868686] rounded-[5px]"></div>
+                  <p>Final results</p>
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+                <div class="flex gap-2 xl:gap-5">
+                  <img src="svg/heart_active.svg" alt="" />
+                  <img src="svg/share.svg" alt="" />
+                  <img src="svg/something.svg" alt="" />
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+              </div>
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Write something.."
+                />
+                <img
+                  class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
+                  src="svg/add_photo.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
+            <p class="mb-2">Feed</p>
+            <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
+            <div class="flex flex-col gap-2 xl:gap-5">
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/rachelle.svg" alt="" />
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex gap-2 xl:gap-5">
+                      <p>Rachelle Nona</p>
+                      <img src="svg/favourite_active.svg" alt="" />
+                    </div>
+                    <p class="text-sm text-[#868686]">@CuteOwl</p>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <div
+                      class="w-[5px] h-[5px] bg-[#BC4848] rounded-[5px]"
+                    ></div>
+                    <p class="text-[#BC4848]">2 hours ago</p>
+                  </div>
+                </div>
+                <img
+                  class="absolute top-0 right-0"
+                  src="svg/kebab_menu.svg"
+                  alt=""
+                />
+              </div>
+              <p>Just curious what do you use most, flexbox or CSS grid?</p>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[81.2%] bg-[#bc4848]/[0.812] items-center flex rounded"
+                >
+                  <p class="ml-2">Flexbox</p>
+                </div>
+                <p>81.2%</p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[18.8%] bg-[#bc4848]/[0.188] items-center flex rounded"
+                >
+                  <p class="ml-2">Grid</p>
+                </div>
+                <p>18.8%</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-[#868686] text-sm">
+                  <p>2,726 votes</p>
+                  <div class="w-[5px] h-[5px] bg-[#868686] rounded-[5px]"></div>
+                  <p>Final results</p>
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+                <div class="flex gap-2 xl:gap-5">
+                  <img src="svg/heart_active.svg" alt="" />
+                  <img src="svg/share.svg" alt="" />
+                  <img src="svg/something.svg" alt="" />
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+              </div>
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Write something.."
+                />
+                <img
+                  class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
+                  src="svg/add_photo.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
+            <p class="mb-2">Feed</p>
+            <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
+            <div class="flex flex-col gap-2 xl:gap-5">
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/rachelle.svg" alt="" />
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex gap-2 xl:gap-5">
+                      <p>Rachelle Nona</p>
+                      <img src="svg/favourite_active.svg" alt="" />
+                    </div>
+                    <p class="text-sm text-[#868686]">@CuteOwl</p>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <div
+                      class="w-[5px] h-[5px] bg-[#BC4848] rounded-[5px]"
+                    ></div>
+                    <p class="text-[#BC4848]">2 hours ago</p>
+                  </div>
+                </div>
+                <img
+                  class="absolute top-0 right-0"
+                  src="svg/kebab_menu.svg"
+                  alt=""
+                />
+              </div>
+              <p>Just curious what do you use most, flexbox or CSS grid?</p>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[81.2%] bg-[#bc4848]/[0.812] items-center flex rounded"
+                >
+                  <p class="ml-2">Flexbox</p>
+                </div>
+                <p>81.2%</p>
+              </div>
+              <div class="flex items-center justify-between">
+                <div
+                  class="h-10 w-[18.8%] bg-[#bc4848]/[0.188] items-center flex rounded"
+                >
+                  <p class="ml-2">Grid</p>
+                </div>
+                <p>18.8%</p>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-[#868686] text-sm">
+                  <p>2,726 votes</p>
+                  <div class="w-[5px] h-[5px] bg-[#868686] rounded-[5px]"></div>
+                  <p>Final results</p>
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+                <div class="flex gap-2 xl:gap-5">
+                  <img src="svg/heart_active.svg" alt="" />
+                  <img src="svg/share.svg" alt="" />
+                  <img src="svg/something.svg" alt="" />
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+              </div>
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Write something.."
+                />
+                <img
+                  class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
+                  src="svg/add_photo.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
             <p class="mb-2">Feed</p>
             <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
             <div class="flex flex-col gap-2 xl:gap-5">
@@ -382,92 +611,94 @@
       </div>
       <!-- Recent Activity -->
       <div
-        class="h-[calc(100vh-100px)] xl:h-[calc(100vh-116px)] scrollbar overflow-y-scroll leading-[14px] hidden text-sm xl:flex flex-col gap-2 min-w-[295px] bg-[#282828] rounded-[20px] p-5"
+        class="sticky top-0 h-[calc(100vh-100px)] xl:h-[calc(100vh-116px)] scrollbar overflow-y-scroll leading-[14px] hidden text-sm xl:flex flex-col gap-2 min-w-[295px] bg-[#282828] rounded-[20px] p-5"
       >
-        <p class="leading-[16px] text-base">Recent Activity</p>
-        <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
-        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
-          <div class="flex justify-between">
-            <div class="flex items-center gap-2">
-              <img src="svg/rachelle_nona.svg" alt="" />
-              <p>Rachelle Nona</p>
+        <div>
+          <p class="leading-[16px] text-base">Recent Activity</p>
+          <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between">
+              <div class="flex items-center gap-2">
+                <img src="svg/rachelle_nona.svg" alt="" />
+                <p>Rachelle Nona</p>
+              </div>
+              <img src="svg/favourite_active.svg" alt="" />
             </div>
-            <img src="svg/favourite_active.svg" alt="" />
-          </div>
-          <div class="flex flex-col gap-2 text-[#868686]">
-            <p>Is now open for commission</p>
-            <p>Price range 20$ - 75$</p>
-          </div>
-          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
-            Have a look
-          </button>
-        </div>
-        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
-          <div class="flex justify-between">
-            <div class="flex items-center gap-2">
-              <img src="svg/matilda_hoshi.svg" alt="" />
-              <p>Matilda Hoshi</p>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <p>Is now open for commission</p>
+              <p>Price range 20$ - 75$</p>
             </div>
-            <img src="svg/favourite_unchecked.svg" alt="" />
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              Have a look
+            </button>
           </div>
-          <div class="flex flex-col gap-2 text-[#868686]">
-            <div class="flex gap-2">
-              <p>Is now live</p>
-              <img src="svg/live.svg" alt="" />
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between">
+              <div class="flex items-center gap-2">
+                <img src="svg/matilda_hoshi.svg" alt="" />
+                <p>Matilda Hoshi</p>
+              </div>
+              <img src="svg/favourite_unchecked.svg" alt="" />
             </div>
-            <p>Time spent streaming 0:04:43</p>
-          </div>
-          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
-            Watch
-          </button>
-        </div>
-        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
-          <div class="flex justify-between">
-            <div class="flex items-center gap-2">
-              <img src="svg/rama_melville.svg" alt="" />
-              <p>Rama Melville</p>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <div class="flex gap-2">
+                <p>Is now live</p>
+                <img src="svg/live.svg" alt="" />
+              </div>
+              <p>Time spent streaming 0:04:43</p>
             </div>
-            <img src="svg/favourite_unchecked.svg" alt="" />
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              Watch
+            </button>
           </div>
-          <div class="flex flex-col gap-2 text-[#868686]">
-            <p>Is still open for commission</p>
-            <p>Price range 5$ - 10$</p>
-          </div>
-          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
-            Have a look
-          </button>
-        </div>
-        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
-          <div class="flex justify-between items-center">
-            <div class="flex items-center gap-2">
-              <img src="svg/ivar_patritsiya.svg" alt="" />
-              <p>Ivar Patritsiya</p>
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between">
+              <div class="flex items-center gap-2">
+                <img src="svg/rama_melville.svg" alt="" />
+                <p>Rama Melville</p>
+              </div>
+              <img src="svg/favourite_unchecked.svg" alt="" />
             </div>
-            <img src="svg/favourite_active.svg" alt="" />
-          </div>
-          <div class="flex flex-col gap-2 text-[#868686]">
-            <p>Ivar’s post is trending</p>
-            <p>11k likes</p>
-          </div>
-          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
-            See post
-          </button>
-        </div>
-        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
-          <div class="flex justify-between items-center">
-            <div class="flex items-center gap-2">
-              <img src="svg/edvard_keara.svg" alt="" />
-              <p>Edvard Keara</p>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <p>Is still open for commission</p>
+              <p>Price range 5$ - 10$</p>
             </div>
-            <img src="svg/favourite_unchecked.svg" alt="" />
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              Have a look
+            </button>
           </div>
-          <div class="flex flex-col gap-2 text-[#868686]">
-            <p>Is now open for commission</p>
-            <p>Price range 20$ - 75$</p>
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <img src="svg/ivar_patritsiya.svg" alt="" />
+                <p>Ivar Patritsiya</p>
+              </div>
+              <img src="svg/favourite_active.svg" alt="" />
+            </div>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <p>Ivar’s post is trending</p>
+              <p>11k likes</p>
+            </div>
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              See post
+            </button>
           </div>
-          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
-            Have a look
-          </button>
+          <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <img src="svg/edvard_keara.svg" alt="" />
+                <p>Edvard Keara</p>
+              </div>
+              <img src="svg/favourite_unchecked.svg" alt="" />
+            </div>
+            <div class="flex flex-col gap-2 text-[#868686]">
+              <p>Is now open for commission</p>
+              <p>Price range 20$ - 75$</p>
+            </div>
+            <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+              Have a look
+            </button>
+          </div>
         </div>
       </div>
     </div>
