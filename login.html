@@ -51,6 +51,12 @@
         </svg>
       </div>
       <div class="md:container w-full h-screen bg-[#F0F2F5] relative">
+        <p
+          id="general-error-message"
+          class="absolute left-1/2 -translate-x-1/2 mt-5 capitalize text-3xl text-red-500"
+        >
+          Error message here
+        </p>
         <div class="flex gap-5 justify-center mt-[168px]">
           <svg
             width="32"
@@ -90,14 +96,14 @@
               class="w-full border border-[#868686] rounded h-[38px] indent-2"
               placeholder="Email adress"
               name="email"
-              id="email"
+              id="loginEmail"
             />
             <input
               class="w-full border border-[#868686] rounded h-[38px] indent-2"
               placeholder="Password"
               type="password"
               name="password"
-              id="password"
+              id="loginPassword"
             />
             <a
               class="bg-[#4862BC] text-white h-[38px] rounded w-full text-center leading-[38px]"
@@ -143,124 +149,133 @@
         <div
           class="p-5 w-full max-w-[428px] h-full xsm:min-w-[362px] min-w-[320px] relative z-50 bg-[#212121]"
         >
-          <img
-            id="close"
-            class="absolute right-5 top-5 cursor-pointer"
-            src="svg/close.svg"
-            alt=""
-          />
-          <div class="flex flex-col gap-5 mb-8">
-            <div class="flex gap-2 justify-center h-">
-              <img class="" src="svg/logo.svg" alt="" />
-              <p class="text-xl font-medium">Join Artfriender today</p>
-            </div>
-            <div>
-              <p class="text-base text-[#BC4848]">Sign up</p>
-              <div class="flex">
-                <div class="h-px min-w-[55px] bg-[#BC4848]"></div>
-                <div class="w-full h-px bg-[#323232]"></div>
+          <form id="contactForm">
+            <img
+              id="close"
+              class="absolute right-5 top-5 cursor-pointer"
+              src="svg/close.svg"
+              alt=""
+            />
+            <div class="flex flex-col gap-5 mb-8">
+              <div class="flex gap-2 justify-center h-">
+                <img class="" src="svg/logo.svg" alt="" />
+                <p class="text-xl font-medium">Join Artfriender today</p>
+              </div>
+              <div>
+                <p class="text-base text-[#BC4848]">Sign up</p>
+                <div class="flex">
+                  <div class="h-px min-w-[55px] bg-[#BC4848]"></div>
+                  <div class="w-full h-px bg-[#323232]"></div>
+                </div>
+              </div>
+              <p class="font-light">
+                Creating an account allows you to post your own content, comment
+                on other’s posts, creating lists with your favourite art, and
+                much more.
+              </p>
+              <div class="relative">
+                <label for="username">Username</label>
+                <input
+                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                  type="text"
+                  name="username"
+                  id="username"
+                />
+                <span
+                  id="usernameError"
+                  class="hidden absolute left-2 bottom-1 text-red-400 pointer-events-none"
+                  >You must enter your first name</span
+                >
+              </div>
+              <div class="relative">
+                <label for="password">Password</label>
+                <input
+                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                  type="password"
+                  name="password"
+                  id="password"
+                />
+                <span
+                  id="passwordError"
+                  class="hidden absolute left-2 bottom-1 text-red-400 pointer-events-none"
+                  >Password is required and must be over 8 chars</span
+                >
+              </div>
+              <div class="relative">
+                <label for="confirm-password">Confirm Password</label>
+                <input
+                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                  type="password"
+                  name="confirm-password"
+                  id="confirmPassword"
+                />
+                <span
+                  id="confirmPasswordError"
+                  class="hidden absolute left-2 bottom-1 text-red-400 pointer-events-none"
+                  >Password is required and must be over 8 chars</span
+                >
+                <span
+                  id="confirmPasswordNotMatching"
+                  class="hidden absolute left-2 bottom-1 text-red-400 pointer-events-none"
+                  >Passwords doesn't match</span
+                >
+              </div>
+              <div>
+                <p>Date of Birth</p>
+                <div class="flex gap-2">
+                  <input
+                    class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                    type="text"
+                    placeholder="DD"
+                  />
+                  <input
+                    class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                    type="text"
+                    placeholder="MM"
+                  />
+                  <input
+                    class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                    type="text"
+                    placeholder="YYYY "
+                  />
+                </div>
+              </div>
+              <div class="relative">
+                <label for="email">Email</label>
+                <input
+                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
+                  type="email"
+                  name="email"
+                  id="email"
+                />
+                <span
+                  id="emailErrorNotValid"
+                  class="hidden absolute left-2 bottom-1 text-red-400 pointer-events-none"
+                >
+                  Must be a stud.noroff.no or noroff.no email address
+                </span>
+                <span
+                  id="emailError"
+                  class="hidden absolute left-2 bottom-1 text-red-400 pointer-events-none"
+                  >Email is required</span
+                >
               </div>
             </div>
-            <p class="font-light">
-              Creating an account allows you to post your own content, comment
-              on other’s posts, creating lists with your favourite art, and much
-              more.
+            <p class="font-light text-center mb-8">
+              By clicking Sign Up, you are agreeing to Artfriender's <br />
+              <span class="text-[#BC4848] cursor-pointer"
+                >Terms of Service.</span
+              >
             </p>
-            <div class="relative">
-              <label for="username">Username</label>
-              <input
-                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                type="text"
-                name="username"
-                id="username"
-              />
-              <span
-                class="absolute left-2 bottom-1 text-red-400 pointer-events-none"
-                >You must enter your first name</span
+            <a href="index.html"
+              ><button
+                type="submit"
+                class="w-full h-[30px] rounded-[6.4px] bg-[#BC4848]"
               >
-            </div>
-            <div class="relative">
-              <label for="password">Password</label>
-              <input
-                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                type="password"
-                name="password"
-                id="password"
-              />
-              <span
-                id="passwordError"
-                class="absolute left-2 bottom-1 text-red-400 pointer-events-none"
-                >Password is required and must be over 8 chars</span
-              >
-            </div>
-            <div class="relative">
-              <label for="confirm-password">Confirm Password</label>
-              <input
-                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                type="password"
-                name="confirm-password"
-                id="confirmPassword"
-              />
-              <span
-                id="confirmPasswordError"
-                class="absolute left-2 bottom-1 text-red-400 pointer-events-none"
-                >Password is required and must be over 8 chars</span
-              >
-              <span
-                id="confirmPasswordNotMatching"
-                class="absolute left-2 bottom-1 text-red-400 pointer-events-none"
-                >Passwords doesn't match</span
-              >
-            </div>
-            <div>
-              <p>Date of Birth</p>
-              <div class="flex gap-2">
-                <input
-                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                  type="text"
-                  placeholder="DD"
-                />
-                <input
-                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                  type="text"
-                  placeholder="MM"
-                />
-                <input
-                  class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                  type="text"
-                  placeholder="YYYY"
-                />
-              </div>
-            </div>
-            <div class="relative">
-              <label for="email">Email</label>
-              <input
-                class="w-full rounded-[6.4px] h-[30px] bg-[#545353] indent-2 font-light"
-                type="email"
-                name="email"
-                id="email"
-              />
-              <span
-                id="emailErrorNotValid"
-                class="absolute left-2 bottom-1 text-red-400 pointer-events-none"
-              >
-                Must be a stud.noroff.no or noroff.no email address
-              </span>
-              <span
-                class="absolute left-2 bottom-1 text-red-400 pointer-events-none"
-                >Email is required</span
-              >
-            </div>
-          </div>
-          <p class="font-light text-center mb-8">
-            By clicking Sign Up, you are agreeing to Artfriender's <br />
-            <span class="text-[#BC4848] cursor-pointer">Terms of Service.</span>
-          </p>
-          <a href="index.html"
-            ><button class="w-full h-[30px] rounded-[6.4px] bg-[#BC4848]">
-              Sign Up
-            </button></a
-          >
+                Sign Up
+              </button></a
+            >
+          </form>
         </div>
       </div>
     </div>
