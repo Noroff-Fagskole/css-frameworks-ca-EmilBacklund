@@ -89,26 +89,39 @@
         <div
           class="bg-white p-5 max-w-[400px] w-full rounded absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 shadow-xl"
         >
-          <form action="" class="flex flex-col gap-5 font-josefin">
-            <input
-              class="w-full border border-[#868686] rounded h-[38px] indent-2"
-              placeholder="Email adress"
-              name="email"
-              id="loginEmail"
-            />
-            <input
-              class="w-full border border-[#868686] rounded h-[38px] indent-2"
-              placeholder="Password"
-              type="password"
-              name="password"
-              id="loginPassword"
-            />
-            <a
+          <form id="loginForm" class="flex flex-col gap-5 font-josefin">
+            <div>
+              <input
+                class="w-full border border-[#868686] rounded h-[38px] indent-2"
+                placeholder="Email adress"
+                name="email"
+                id="loginEmail"
+              />
+
+              <span id="loginEmailErrorNotValid" class="hidden text-red-400"
+                >Must be stud.noroff.no or noroff.no email address</span
+              >
+              <span id="loginEmailError" class="hidden text-red-400"
+                >Email is required
+              </span>
+            </div>
+            <div>
+              <input
+                class="w-full border border-[#868686] rounded h-[38px] indent-2"
+                placeholder="Password"
+                type="password"
+                name="password"
+                id="loginPassword"
+              />
+              <span id="loginPasswordError" class="hidden text-red-400"
+                >Password must be over 8 chars</span
+              >
+            </div>
+            <button
               class="bg-[#4862BC] text-white h-[38px] rounded w-full text-center leading-[38px]"
-              href="index.html"
             >
               Log In
-            </a>
+            </button>
             <a href="#" class="text-center underline">Forgot Password?</a>
             <button
               data-modal-target="#modal"

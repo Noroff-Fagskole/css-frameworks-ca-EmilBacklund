@@ -1,6 +1,8 @@
 import { openModal, closeModal } from './helpers/modals/modals.signup';
 import { REGISTER_USER_ENDPOINT } from './settings/api';
 
+export { validateEmail };
+
 const contactForm = document.querySelector('#contactForm');
 
 const username = document.querySelector('#username');

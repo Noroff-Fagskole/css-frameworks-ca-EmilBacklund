@@ -234,7 +234,7 @@
               alt=""
             />
           </div>
-          <div class="px-5 pt-4 pb-5 h-1/2">
+          <div class="px-5 pt-4 pb-5 h-1/2 relative">
             <div class="flex justify-between mb-[12px]">
               <div class="flex flex-col items-center">
                 <p class="leading-4">596</p>
@@ -248,19 +248,16 @@
             <div class="flex justify-center">
               <div class="flex flex-col items-center">
                 <p class="leading-4 mb-2">Emil Backlund</p>
-                <p class="text-sm text-[#868686] leading-[14px] mb-4">
-                  @KingFrog
-                </p>
               </div>
             </div>
-            <div class="flex justify-between gap-2">
+            <div class="absolute w-full bottom-5 flex justify-between gap-2">
               <button
                 class="bg-[#868686] w-[117px] rounded-[10px] text-sm leading-[30px] h-[30px] flex gap-2 items-center text-center justify-center"
               >
                 <img src="svg/edit.svg" alt="" />Edit Profile
               </button>
               <button
-                class="bg-[#BC4848] w-[117px] rounded-[10px] text-sm leading-[30px] h-[30px] flex gap-2 items-center text-center justify-center"
+                class="mr-10 bg-[#BC4848] w-[117px] rounded-[10px] text-sm leading-[30px] h-[30px] flex gap-2 items-center text-center justify-center"
               >
                 <img src="svg/add_story.svg" alt="" />Add Story
               </button>
