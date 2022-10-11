@@ -52,11 +52,9 @@
       </div>
       <div class="md:container w-full h-screen bg-[#F0F2F5] relative">
         <p
-          id="general-error-message"
-          class="absolute left-1/2 -translate-x-1/2 mt-5 capitalize text-3xl text-red-500"
-        >
-          Error message here
-        </p>
+          id="generalErrorMessage"
+          class="absolute left-1/2 -translate-x-1/2 mt-5 capitalize text-3xl"
+        ></p>
         <div class="flex gap-5 justify-center mt-[168px]">
           <svg
             width="32"
@@ -198,7 +196,7 @@
                 <span
                   id="passwordError"
                   class="hidden absolute left-2 bottom-1 text-red-400 pointer-events-none"
-                  >Password is required and must be over 8 chars</span
+                  >Password must be over 8 chars</span
                 >
               </div>
               <div class="relative">
@@ -212,7 +210,7 @@
                 <span
                   id="confirmPasswordError"
                   class="hidden absolute left-2 bottom-1 text-red-400 pointer-events-none"
-                  >Password is required and must be over 8 chars</span
+                  >Password must be over 8 chars</span
                 >
                 <span
                   id="confirmPasswordNotMatching"
@@ -252,7 +250,7 @@
                   id="emailErrorNotValid"
                   class="hidden absolute left-2 bottom-1 text-red-400 pointer-events-none"
                 >
-                  Must be a stud.noroff.no or noroff.no email address
+                  Must be stud.noroff.no or noroff.no email address
                 </span>
                 <span
                   id="emailError"
@@ -280,6 +278,7 @@
       </div>
     </div>
     <script type="module" src="js/login.js" defer></script>
+    <script type="module" src="js/register.js" defer></script>
     <script type="module" src="js/index.js" defer></script>
   </body>
 </html>
