@@ -2,10 +2,11 @@ export {
   saveTokenInLocalStorage,
   saveUserInLocalStorage,
   getUserNameInLocalStorage,
+  getToken,
 };
 
 function saveTokenInLocalStorage(token) {
-  localStorage.setItem('token', token);
+  localStorage.setItem('token', JSON.stringify(token));
 }
 
 function saveUserInLocalStorage(user) {
@@ -28,4 +29,8 @@ function getFromStorage(key) {
   } else {
     return [];
   }
+}
+
+function getToken() {
+  return getFromStorage('token');
 }

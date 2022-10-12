@@ -275,14 +275,22 @@
         <div class="flex flex-col gap-2 sm:gap-5">
           <div class="py-5 px-2 bg-[#282828] rounded-[20px] xl:px-5">
             <div class="flex flex-col gap-2 xl:gap-[18px]">
-              <div class="flex gap-2 xl:gap-5">
+              <form id="createPostForm" class="flex gap-2 xl:gap-5">
                 <img src="svg/king_frog.svg" alt="" />
                 <input
+                  id="postBody"
                   class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
                   type="text"
                   placeholder="Share something with your friends.."
                 />
-              </div>
+                <button
+                  id=""
+                  type="submit"
+                  class="bg-[#BC4848] rounded-[10px] px-5"
+                >
+                  Share
+                </button>
+              </form>
               <div class="w-full h-0.5 bg-[#2C2C2C] xl:hidden"></div>
               <div
                 class="flex justify-between text-sm xsm:text-base gap-2 flex-wrap"
@@ -315,7 +323,7 @@
             </div>
           </div>
           <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
-            <p class="mb-2">Feed</p>
+            <p class="mb-2">Title</p>
             <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
             <div class="flex flex-col gap-2 xl:gap-5">
               <div class="flex gap-2 xl:gap-5 relative">
@@ -702,5 +710,6 @@
       </div>
     </div>
     <script type="module" src="js/index.js" defer></script>
+    <script type="module" src="js/createPost.js" defer></script>
   </body>
 </html>
