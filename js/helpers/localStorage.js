@@ -4,9 +4,6 @@ export {
   getUserNameInLocalStorage,
 };
 
-// const tokenKey = 'token';
-// const userKey = 'user';
-
 function saveTokenInLocalStorage(token) {
   localStorage.setItem('token', token);
 }
@@ -16,9 +13,18 @@ function saveUserInLocalStorage(user) {
 }
 
 function getUserNameInLocalStorage() {
-  const user = localStorage.getItem('user', user);
-  if (user) {
-    return JSON.parse(user);
+  const user = getFromStorage('user');
+  if ('user') {
+    return user.name;
+  } else {
+    return [];
+  }
+}
+
+function getFromStorage(key) {
+  const value = localStorage.getItem(key);
+  if (value) {
+    return JSON.parse(value);
   } else {
     return [];
   }
