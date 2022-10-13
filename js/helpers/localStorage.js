@@ -3,6 +3,7 @@ export {
   saveUserInLocalStorage,
   getUserNameInLocalStorage,
   getToken,
+  clearStorage,
 };
 
 function saveTokenInLocalStorage(token) {
@@ -33,4 +34,8 @@ function getFromStorage(key) {
 
 function getToken() {
   return getFromStorage('token');
+}
+
+function clearStorage() {
+  localStorage.clear();
 }
