@@ -1,6 +1,7 @@
 import moment from 'moment/moment';
 import { GET_LOGGED_IN_USER_POSTS_ENDPOINT } from './settings/api';
 import { getToken } from './helpers/localStorage';
+import { openPostOptionModal } from './helpers/modals/modals.postOption';
 
 const timeNow = moment(new Date());
 
@@ -63,12 +64,20 @@ const postContainer = document.querySelector('#myPostContainer');
               <p class="text-[#BC4848]">${timeSinceCreated}${time}</p>
             </div>
           </div>
-          <img
-          id="postOptions"
-            class="absolute top-0 right-0 pointer"
-            src="svg/kebab_menu.svg"
-            alt=""
-          />
+          <div class="absolute top-0 right-0 cursor-pointer">
+            <div class="relative">
+              <img
+              data-type="${posts[i].id}"
+                class="postOption"
+                src="svg/kebab_menu.svg"
+                alt=""
+              />
+              <div modal-id="${posts[i].id}" class="postOptionModal absolute pointer-events-none -translate-x-3 right-0 shadow-3xl bg-[#282828] hidden p-5">
+              <button post-id="${posts[i].id}" 
+              class="delete-post-btn bg-[#BC4848] pointer-events-auto h-[38px] whitespace-nowrap w-full rounded-[10px] px-5">Delete Post</button>
+              </div>
+            </div>
+          </div>
         </div>
         <p>${posts[i].body}</p>
         <img src="${posts[i].media}" />
@@ -111,4 +120,8 @@ const postContainer = document.querySelector('#myPostContainer');
     console.log(err);
     console.log('My posts failed');
   }
-})();
+})()
+  .then(() => {
+    openPostOptionModal();
+  })
+  .catch((err) => {});
