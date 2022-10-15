@@ -10,6 +10,8 @@ const GET_POSTS_ENDPOINT =
 const GET_LOGGED_IN_USER_POSTS_ENDPOINT =
   BASE_URL +
   `api/v1/social/profiles/${getUserNameInLocalStorage()}?_posts=true&_comments=true`;
+const DELETE_POSTS_BY_ID_ENDPOINT = BASE_URL + 'api/v1/social/posts';
+const GET_POST_BY_ID_ENDPOINT = BASE_URL + 'api/v1/social/posts';
 
 export {
   BASE_URL,
@@ -18,4 +20,6 @@ export {
   CREATE_POST_ENDPOINT,
   GET_POSTS_ENDPOINT,
   GET_LOGGED_IN_USER_POSTS_ENDPOINT,
+  DELETE_POSTS_BY_ID_ENDPOINT,
+  GET_POST_BY_ID_ENDPOINT,
 };

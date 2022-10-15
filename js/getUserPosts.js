@@ -1,13 +1,17 @@
 import moment from 'moment/moment';
-import { GET_LOGGED_IN_USER_POSTS_ENDPOINT } from './settings/api';
+import {
+  GET_LOGGED_IN_USER_POSTS_ENDPOINT,
+  DELETE_POSTS_BY_ID_ENDPOINT,
+} from './settings/api';
 import { getToken } from './helpers/localStorage';
 import { openPostOptionModal } from './helpers/modals/modals.postOption';
 
 const timeNow = moment(new Date());
 
 const postContainer = document.querySelector('#myPostContainer');
+const emptyPostNotification = document.querySelector('#emptyPostNotification');
 
-(async function getUserPosts() {
+async function getUserPosts() {
   const response = await fetch(GET_LOGGED_IN_USER_POSTS_ENDPOINT, {
     method: 'GET',
     headers: {
@@ -20,8 +24,15 @@ const postContainer = document.querySelector('#myPostContainer');
     const jsonResponse = await response.json();
     console.log(jsonResponse);
     console.log('My posts succeeded');
+    postContainer.innerHTML = '';
     const { posts } = jsonResponse;
     console.log(posts);
+
+    if (!posts.length) {
+      emptyPostNotification.innerHTML = `<p class="mb-5 text-center text-xl">You have not posted anything yet! 🙂</p>`;
+    } else {
+      emptyPostNotification.innerHTML = ``;
+    }
 
     for (let i = 0; i < posts.length; i++) {
       let createdDate = posts[i].created;
@@ -42,7 +53,10 @@ const postContainer = document.querySelector('#myPostContainer');
 
       console.log(posts[i].body);
       postContainer.innerHTML += `<div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
+      <a href="../userPost.html">
       <p class="mb-2">${posts[i].title}</p>
+      </a>
+
       <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
       <div class="flex flex-col gap-2 xl:gap-5">
         <div class="flex gap-2 xl:gap-5 relative">
@@ -52,7 +66,8 @@ const postContainer = document.querySelector('#myPostContainer');
           <div class="flex flex-col justify-between">
             <div>
               <div class="flex gap-2 xl:gap-5">
-                <p>${posts[i].owner}</p>
+                
+                  <p>${posts[i].owner}</p>
                 <img src="svg/favourite_active.svg" alt="" />
               </div>
               <p class="text-sm text-[#868686]">@CuteOwl</p>
@@ -73,7 +88,7 @@ const postContainer = document.querySelector('#myPostContainer');
                 alt=""
               />
               <div modal-id="${posts[i].id}" class="postOptionModal absolute pointer-events-none -translate-x-3 right-0 shadow-3xl bg-[#282828] hidden p-5">
-              <button post-id="${posts[i].id}" 
+              <button data-id="${posts[i].id}" 
               class="delete-post-btn bg-[#BC4848] pointer-events-auto h-[38px] whitespace-nowrap w-full rounded-[10px] px-5">Delete Post</button>
               </div>
             </div>
@@ -120,8 +135,47 @@ const postContainer = document.querySelector('#myPostContainer');
     console.log(err);
     console.log('My posts failed');
   }
-})()
+}
+getUserPosts()
   .then(() => {
-    openPostOptionModal();
+    handleDeleteButtons();
   })
   .catch((err) => {});
+
+function handleDeleteButtons() {
+  openPostOptionModal();
+  const deleteBtn = document.querySelectorAll('.delete-post-btn');
+
+  for (let i = 0; i < deleteBtn.length; i++) {
+    deleteBtn[i].addEventListener('click', (e) => {
+      handleDeletePostById(e.target.dataset.id);
+    });
+  }
+}
+
+function handleDeletePostById(postID) {
+  console.log(postID);
+
+  const deleteUserById = async () => {
+    try {
+      let response = await fetch(`${DELETE_POSTS_BY_ID_ENDPOINT}/${postID}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${getToken()}`,
+        },
+      });
+      if (response.status === 200) {
+        console.log('Delete post success');
+        getUserPosts().then(() => {
+          handleDeleteButtons();
+        });
+      } else {
+        const err = await response.json();
+        throw Error(err);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  deleteUserById();
+}

@@ -23,7 +23,7 @@ console.log(postHandler);
     console.log(posts);
 
     const HTML_POSTS = posts
-      .map(({ body, title, created, _count, media, author, comments }) => {
+      .map(({ body, title, created, _count, media, author, comments, id }) => {
         const createdDate = created;
         let time = ' seconds ago';
 
@@ -69,7 +69,9 @@ console.log(postHandler);
 
         return `
         <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5 mb-5">
-              <p class="mb-2">${title}</p>
+              <a class="mb-2" href="../userPost.html?post_id=${id}">
+               <p class="transition duration-300 hover:bg-[#BC4848] rounded">${title}</p>
+              </a>
               <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
               <div class="flex flex-col gap-2 xl:gap-5">
                 <div class="flex gap-2 xl:gap-5 relative">

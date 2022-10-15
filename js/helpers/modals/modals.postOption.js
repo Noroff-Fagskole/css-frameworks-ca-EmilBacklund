@@ -15,8 +15,8 @@ function openPostOptionModal() {
     });
 
     // fungerar inte
-    postOptionModal.addEventListener('keydown', (e) => {
-      if (e.key.code == 27) {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
         postOptionModal[i].classList.add('hidden');
       }
     });

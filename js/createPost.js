@@ -40,6 +40,7 @@ createPostFrom.addEventListener('submit', (event) => {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
+        location.reload();
       } else {
         const err = await response.json();
         const message = 'Creating post failed';
