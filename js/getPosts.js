@@ -63,6 +63,7 @@ async function getAllPosts() {
           let commentSection = ``;
           let avatar = `<img src="svg/noAvatar.svg" alt="" />`;
 
+          //TODO need to fix avatar image to correct user
           if (isImage(author.avatar)) {
             avatar = `<img class="rounded-full h-8 w-8" src="${author.avatar}" alt="" />`;
           }
@@ -72,7 +73,7 @@ async function getAllPosts() {
               commentSection += `
                 <div class="flex gap-5 items-center">
                 ${avatar}
-                <p class="w-full"><span class="text-[#BC4848]">${author.name}:</span> ${comments[i].body}</p>
+                <p class="w-full"><span class="text-[#BC4848]">${comments[i].owner}:</span> ${comments[i].body}</p>
                 </div>`;
             }
           }
@@ -188,6 +189,7 @@ function handleCommentPostById(postID, data) {
         body: JSON.stringify(data),
       });
       if (response.status === 200) {
+        console.log(response);
         console.log('success');
         getAllPosts();
       }
