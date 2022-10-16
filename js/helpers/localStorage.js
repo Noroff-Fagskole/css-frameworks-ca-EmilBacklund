@@ -33,7 +33,12 @@ function getFromStorage(key) {
 }
 
 function getToken() {
-  return getFromStorage('token');
+  const value = localStorage.getItem('token');
+  if (value) {
+    return JSON.parse(value);
+  } else {
+    return null;
+  }
 }
 
 function clearStorage() {

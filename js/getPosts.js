@@ -1,5 +1,5 @@
 import moment from 'moment/moment';
-import { GET_POSTS_ENDPOINT } from './settings/api';
+import { GET_POSTS_ENDPOINT, COMMENT_ON_POST_BY_ID } from './settings/api';
 import { getToken } from './helpers/localStorage';
 
 const postHandler = document.querySelector('#postHandler');
@@ -8,7 +8,11 @@ const timeNow = moment(new Date());
 
 console.log(postHandler);
 
-(async function getAllPosts() {
+if (!getToken()) {
+  location.href = '/login.html';
+}
+
+async function getAllPosts() {
   const response = await fetch(GET_POSTS_ENDPOINT, {
     method: 'GET',
     headers: {
@@ -27,9 +31,17 @@ console.log(postHandler);
         const createdDate = created;
         let time = ' seconds ago';
 
+        function isImage(url) {
+          return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
+        }
+
+        if (!isImage(media)) {
+          media = '';
+        }
+
         let profilePicture = author.avatar;
 
-        if (!author.avatar) {
+        if (!isImage(profilePicture)) {
           profilePicture = `svg/noAvatar.svg`;
         }
 
@@ -51,7 +63,7 @@ console.log(postHandler);
           let commentSection = ``;
           let avatar = `<img src="svg/noAvatar.svg" alt="" />`;
 
-          if (author.avatar) {
+          if (isImage(author.avatar)) {
             avatar = `<img class="rounded-full h-8 w-8" src="${author.avatar}" alt="" />`;
           }
 
@@ -117,23 +129,20 @@ console.log(postHandler);
                     <img src="svg/something.svg" alt="" />
                   </div>
                     <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
-                         
                          ${printOutHtml()}
                   
                 </div>
-                <div class="flex gap-2 xl:gap-5 relative">
+                <form data-id="${id}" id="commentForm" class="flex gap-2 xl:gap-5 relative">
                   <img src="svg/king_frog.svg" alt="" />
                   <input
+                  id="comment"
+                  data-id="${id}"
                     class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
                     type="text"
                     placeholder="Write something.."
                   />
-                  <img
-                    class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
-                    src="svg/add_photo.svg"
-                    alt=""
-                  />
-                </div>
+                 <button data-id="${id}" class="bg-green-600 h-[38px] whitespace-nowrap rounded-[10px] px-5">Send</button>
+                </form>
               </div>
             </div>
         `;
@@ -145,6 +154,46 @@ console.log(postHandler);
     const err = await response.json();
     throw new Error(err);
   }
-})().catch((err) => {
-  console.log('Get posts failed');
-});
+}
+getAllPosts()
+  .then(() => {
+    const commentForm = document.querySelectorAll('#commentForm');
+    const comment = document.querySelectorAll('#comment');
+
+    for (let i = 0; i < commentForm.length; i++) {
+      commentForm[i].addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const postData = {
+          body: comment[i].value,
+        };
+
+        handleCommentPostById(comment[i].dataset.id, postData);
+      });
+    }
+  })
+  .catch((err) => {
+    console.log('Get posts failed');
+  });
+
+function handleCommentPostById(postID, data) {
+  const commentOnPost = async () => {
+    try {
+      let response = await fetch(`${COMMENT_ON_POST_BY_ID}/${postID}/comment`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${getToken()}`,
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.status === 200) {
+        console.log('success');
+        getAllPosts();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  commentOnPost();
+}

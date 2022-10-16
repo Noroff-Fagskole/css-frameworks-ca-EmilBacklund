@@ -3,11 +3,7 @@ export { createHTML };
 
 function createHTML() {
   const { pathname } = document.location;
-
-  console.log(window.location.pathname);
-
   const userName = document.querySelector('#userName');
-
   const user = getUserNameInLocalStorage();
 
   if (user) {

@@ -8,6 +8,7 @@ export default {
         homepage: path.resolve(__dirname, 'index.html'),
         profilepage: path.resolve(__dirname, 'profilepage.html'),
         userPost: path.resolve(__dirname, 'userPost.html'),
+        editPost: path.resolve(__dirname, 'editPost.html'),
       },
     },
   },

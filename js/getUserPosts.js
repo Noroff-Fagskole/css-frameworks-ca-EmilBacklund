@@ -5,14 +5,21 @@ import {
 } from './settings/api';
 import { getToken } from './helpers/localStorage';
 import { openPostOptionModal } from './helpers/modals/modals.postOption';
+export { getUserPosts };
 
 const timeNow = moment(new Date());
 
 const postContainer = document.querySelector('#myPostContainer');
 const emptyPostNotification = document.querySelector('#emptyPostNotification');
+const profileImg = document.querySelector('#profileImg');
+const bannerImg = document.querySelector('#bannerImg');
+const shareAvatar = document.querySelector('#shareAvatar');
+const mainAvatarImg = document.querySelector('#mainAvatarImg');
+const mobileAvatar = document.querySelector('#mobileAvatar');
+const bannerImage = document.querySelector('#bannerImage');
 
 async function getUserPosts() {
-  const response = await fetch(GET_LOGGED_IN_USER_POSTS_ENDPOINT, {
+  const response = await fetch(`${GET_LOGGED_IN_USER_POSTS_ENDPOINT}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${getToken()}`,
@@ -34,6 +41,23 @@ async function getUserPosts() {
       emptyPostNotification.innerHTML = ``;
     }
 
+    document.title = `${jsonResponse.name}'s Profile`;
+    profileImg.value = jsonResponse.avatar;
+    bannerImg.value = jsonResponse.banner;
+    shareAvatar.src = jsonResponse.avatar;
+    mainAvatarImg.src = jsonResponse.avatar;
+    mobileAvatar.src = jsonResponse.avatar;
+    if (jsonResponse.banner) {
+      bannerImage.src = jsonResponse.banner;
+    }
+    console.log(jsonResponse.banner);
+
+    let profileAvatar = jsonResponse.avatar;
+
+    if (!profileAvatar) {
+      profileAvatar = '/svg/noAvatar.svg';
+    }
+
     for (let i = 0; i < posts.length; i++) {
       let createdDate = posts[i].created;
       let time = ' seconds ago';
@@ -53,15 +77,12 @@ async function getUserPosts() {
 
       console.log(posts[i].body);
       postContainer.innerHTML += `<div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
-      <a href="../userPost.html">
       <p class="mb-2">${posts[i].title}</p>
-      </a>
-
       <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
       <div class="flex flex-col gap-2 xl:gap-5">
         <div class="flex gap-2 xl:gap-5 relative">
           <div class="overflow-hidden w-[100px] h-[100px] rounded-[10px]">
-          <img class="h-full w-full bg-cover" src="${jsonResponse.avatar}" alt="" />
+          <img class="h-full w-full bg-cover" src="${profileAvatar}" alt="" />
           </div>
           <div class="flex flex-col justify-between">
             <div>
@@ -87,9 +108,15 @@ async function getUserPosts() {
                 src="svg/kebab_menu.svg"
                 alt=""
               />
-              <div modal-id="${posts[i].id}" class="postOptionModal absolute pointer-events-none -translate-x-3 right-0 shadow-3xl bg-[#282828] hidden p-5">
+              <div modal-id="${posts[i].id}" class="postOptionModal flex-col gap-5 absolute pointer-events-none -translate-x-3 right-0 shadow-3xl bg-[#282828] hidden p-5">
               <button data-id="${posts[i].id}" 
-              class="delete-post-btn bg-[#BC4848] pointer-events-auto h-[38px] whitespace-nowrap w-full rounded-[10px] px-5">Delete Post</button>
+              class="delete-post-btn bg-[#BC4848] pointer-events-auto h-[38px] whitespace-nowrap w-full rounded-[10px] px-5">Delete Post
+              </button>
+              <a href="/editPost.html?post_id=${posts[i].id}">
+                <button
+                class="edit-post-btn bg-green-600 pointer-events-auto h-[38px] whitespace-nowrap w-full rounded-[10px] px-5">Edit Post
+                </button>
+              </a>
               </div>
             </div>
           </div>
@@ -114,8 +141,8 @@ async function getUserPosts() {
                  
           
         </div>
-        <div class="flex gap-2 xl:gap-5 relative">
-          <img src="svg/king_frog.svg" alt="" />
+        <div class="flex gap-2 xl:gap-5 relative items-center">
+          <img class="rounded-full w-8 h-8" src="${profileAvatar}" alt="" />
           <input
             class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
             type="text"

@@ -2,6 +2,10 @@ import moment from 'moment';
 import { getToken } from './helpers/localStorage';
 import { GET_POST_BY_ID_ENDPOINT } from './settings/api';
 
+if (!getToken()) {
+  location.href = '/login.html';
+}
+
 const paramString = window.location.search;
 const searchParam = new URLSearchParams(paramString);
 const postID = searchParam.get('post_id');

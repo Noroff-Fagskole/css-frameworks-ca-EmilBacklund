@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Julius+Sans+One&family=Kanit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Edit post</title>
+  </head>
+  <body class="bg-[#1A1A1A] text-white font-josefin mb-5">
+    <div
+      class="fixed z-10 hidden xl:flex h-24 max-w-[1240px] w-[90%] mx-auto bg-[#1A1A1A] left-1/2 -translate-x-1/2"
+    >
+      <input
+        class="absolute top-1/2 -translate-y-1/2 max-w-[295px] min-w-[295px] h-10 rounded-[10px] bg-[#282828] indent-10"
+        type="search"
+        placeholder="Search.."
+      />
+      <img
+        class="absolute top-1/2 -translate-y-1/2 left-2"
+        src="svg/search_pc.svg"
+        alt=""
+      />
+      <div
+        class="absolute left-1/2 -translate-x-1/2 flex gap-7 top-1/2 -translate-y-1/2"
+      >
+        <a href="/index.html"
+          ><img class="cursor-pointer" src="svg/home.svg" alt=""
+        /></a>
+        <img class="cursor-pointer" src="svg/message.svg" alt="" />
+        <img class="cursor-pointer" src="svg/notification.svg" alt="" />
+        <img class="cursor-pointer" src="svg/heart.svg" alt="" />
+      </div>
+      <a
+        href="index.html"
+        class="cursor-pointer flex gap-2 absolute right-[193.51px] translate-x-1/2 top-1/2 -translate-y-1/2"
+      >
+        <p class="font-julius text-2xl">ARTFRIENDER</p>
+        <img src="svg/logo.svg" alt="" />
+      </a>
+      <div
+        id="logOutBtn"
+        class="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer"
+      >
+        <img src="svg/logout.svg" alt="" />
+      </div>
+    </div>
+    <div
+      class="h-20 xl:hidden fixed top-0 bg-[#1A1A1A] max-w-[1240px] w-full z-10"
+    >
+      <div
+        class="absolute flex justify-between max-w-[1240px] ml-2 mx-auto sm:w-[90%] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full sm:ml-0"
+      >
+        <div class="flex gap-2">
+          <img src="svg/logo.svg" alt="" />
+          <img src="svg/search.svg" alt="" />
+          <img src="svg/menu.svg" alt="" />
+        </div>
+        <div class="flex gap-2 -translate-x-5 sm:-translate-x-0">
+          <img src="svg/message.svg" alt="" />
+          <img src="svg/notification.svg" alt="" />
+          <img src="svg/king_frog.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="sm:flex gap-5 max-w-[1240px] mx-auto sm:w-[90%] xl:translate-y-24 translate-y-20"
+    >
+      <!-- Middle section -->
+      <div class="min-w-0 flex-1">
+        <div class="flex flex-col gap-2 sm:gap-5">
+          <form id="editPostForm">
+            <div
+              class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5 mb-5"
+            >
+              <div class="flex gap-5 items-center mb-5">
+                <label for="postTitle">Post Title:</label>
+                <input
+                  type="postTitle"
+                  id="postTitle"
+                  class="text-sm xsm:text-base rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                />
+              </div>
+              <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
+              <div class="flex flex-col gap-2 xl:gap-5">
+                <div class="flex gap-2 xl:gap-5 relative">
+                  <div
+                    class="overflow-hidden w-[100px] h-[100px] rounded-[10px]"
+                  >
+                    <img
+                      id="authorAvatar"
+                      class="h-full w-full bg-cover"
+                      src=""
+                      alt=""
+                    />
+                  </div>
+                  <div class="flex flex-col justify-between">
+                    <div>
+                      <div class="flex gap-2 xl:gap-5">
+                        <p id="authorName"></p>
+                        <img src="svg/favourite_active.svg" alt="" />
+                      </div>
+                      <p class="text-sm text-[#868686]">@CuteOwl</p>
+                    </div>
+                    <div class="flex gap-2 items-center">
+                      <div
+                        class="w-[5px] h-[5px] bg-[#BC4848] rounded-[5px]"
+                      ></div>
+                      <p id="postCreated" class="text-[#BC4848]"></p>
+                    </div>
+                  </div>
+                  <button
+                    id="editSubmit"
+                    type="submit"
+                    class="absolute top-0 right-0 pointer bg-green-600 h-[38px] whitespace-nowrap rounded-[10px] px-5"
+                  >
+                    Confirm Edit
+                  </button>
+                </div>
+                <div>
+                  <label for="postDescription">Post content:</label>
+                  <input
+                    id="postDescription"
+                    type="text"
+                    class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  />
+                </div>
+                <div>
+                  <label for="postMedia">Media tag:</label>
+                  <input
+                    id="postMedia"
+                    type="url"
+                    class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  />
+                  <div id="currentMedia"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Recent Activity -->
+    </div>
+    <script type="module" src="js/index.js" defer></script>
+    <script type="module" src="js/editPost.js" defer></script>
+  </body>
+</html>
