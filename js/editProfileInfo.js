@@ -28,7 +28,6 @@ bannerImgForm.addEventListener('submit', (e) => {
 });
 
 function editProfile(value) {
-  console.log(value);
   async function handleProfileEdit() {
     const response = await fetch(`${EDIT_PROFILE_ENDPOINT}`, {
       method: 'PUT',
@@ -38,7 +37,6 @@ function editProfile(value) {
       },
       body: JSON.stringify(value),
     });
-    console.log(response);
   }
   handleProfileEdit();
 }

@@ -48,7 +48,6 @@ loginForm.addEventListener('submit', (event) => {
   let isLoginFormValid = isEmail && isValidEmail && isPassword;
 
   if (isLoginFormValid) {
-    console.log('Validation succeeded!');
     const userData = {
       email: loginEmail.value,
       password: loginPassword.value,
@@ -62,13 +61,9 @@ loginForm.addEventListener('submit', (event) => {
         },
         body: JSON.stringify(userData),
       });
-      console.log(response);
 
       if (response.ok) {
         const data = await response.json();
-
-        console.log(data);
-        console.log(data.accessToken);
 
         saveTokenInLocalStorage(data.accessToken);
 
@@ -76,13 +71,11 @@ loginForm.addEventListener('submit', (event) => {
           name: data.name,
           email: data.email,
         };
-        console.log(saveUser);
 
         saveUserInLocalStorage(saveUser);
         location.href = '/index.html';
       } else {
         const err = await response.json();
-        console.log('Post request failed!');
         throw new Error(err.message);
       }
     })().catch((error) => {

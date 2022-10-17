@@ -25,15 +25,11 @@ async function getUserPosts() {
       Authorization: `Bearer ${getToken()}`,
     },
   });
-  console.log(response);
 
   if (response.ok) {
     const jsonResponse = await response.json();
-    console.log(jsonResponse);
-    console.log('My posts succeeded');
     postContainer.innerHTML = '';
     const { posts } = jsonResponse;
-    console.log(posts);
 
     if (!posts.length) {
       emptyPostNotification.innerHTML = `<p class="mb-5 text-center text-xl">You have not posted anything yet! 🙂</p>`;
@@ -50,7 +46,6 @@ async function getUserPosts() {
     if (jsonResponse.banner) {
       bannerImage.src = jsonResponse.banner;
     }
-    console.log(jsonResponse.banner);
 
     let profileAvatar = jsonResponse.avatar;
 
@@ -75,7 +70,6 @@ async function getUserPosts() {
         }
       }
 
-      console.log(posts[i].body);
       postContainer.innerHTML += `<div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
       <p class="mb-2">${posts[i].title}</p>
       <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
@@ -159,8 +153,6 @@ async function getUserPosts() {
     }
   } else {
     const err = await response.json();
-    console.log(err);
-    console.log('My posts failed');
   }
 }
 getUserPosts()
@@ -181,8 +173,6 @@ function handleDeleteButtons() {
 }
 
 function handleDeletePostById(postID) {
-  console.log(postID);
-
   const deleteUserById = async () => {
     try {
       let response = await fetch(`${DELETE_POSTS_BY_ID_ENDPOINT}/${postID}`, {
@@ -192,7 +182,6 @@ function handleDeletePostById(postID) {
         },
       });
       if (response.status === 200) {
-        console.log('Delete post success');
         getUserPosts().then(() => {
           handleDeleteButtons();
         });
@@ -200,9 +189,7 @@ function handleDeletePostById(postID) {
         const err = await response.json();
         throw Error(err);
       }
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   deleteUserById();
 }

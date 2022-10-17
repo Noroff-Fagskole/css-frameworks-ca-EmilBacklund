@@ -110,8 +110,6 @@ contactForm.addEventListener('submit', (event) => {
     generalErrorMessage.classList.remove('text-red-500');
     generalErrorMessage.classList.add('text-lime-500');
 
-    console.log('Validation succeeded');
-
     const userData = {
       name: username.value,
       email: email.value,
@@ -129,19 +127,16 @@ contactForm.addEventListener('submit', (event) => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('POST REQUEST SUCCEEDED!');
         return data;
       } else {
         const err = await response.json();
         const message = `An error occurred: ${err.message}`;
-        console.log('POST REQUEST FAILED!');
         throw new Error(message);
       }
     })().catch((err) => {
       generalErrorMessage.innerHTML = `Request failed! ${err.message}`;
     });
   } else {
-    console.log('validation failed!');
     generalErrorMessage.innerHTML = 'Create account failed 😥';
     generalErrorMessage.classList.remove('text-lime-500');
     generalErrorMessage.classList.add('text-red-500');

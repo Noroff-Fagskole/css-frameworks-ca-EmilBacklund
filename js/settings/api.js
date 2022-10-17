@@ -6,7 +6,7 @@ const LOGIN_USER_ENDPOINT = BASE_URL + 'api/v1/social/auth/login';
 const CREATE_POST_ENDPOINT = BASE_URL + 'api/v1/social/posts';
 const GET_POSTS_ENDPOINT =
   BASE_URL +
-  'api/v1/social/posts/?_author=true&_comments=true&_reactions=true&&?sort=created&sortOrder=desc';
+  'api/v1/social/posts/?_author=true&_comments=true&_reactions=true&&?';
 const GET_LOGGED_IN_USER_POSTS_ENDPOINT =
   BASE_URL +
   `api/v1/social/profiles/${getUserNameInLocalStorage()}?_posts=true&_comments=true`;

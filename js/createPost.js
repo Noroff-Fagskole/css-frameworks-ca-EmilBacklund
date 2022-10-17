@@ -16,16 +16,12 @@ createPostFrom.addEventListener('submit', (event) => {
   let isFormValid = isPostBody;
 
   if (isFormValid) {
-    console.log('Validation succeeded!');
     let postTitle = postBody.value.split(' ').slice(0, 3).join(' ') + '..';
 
     const postData = {
       title: postTitle,
       body: postBody.value,
     };
-
-    console.log('postData:', postData);
-    console.log(getToken());
 
     (async function createPost() {
       const response = await fetch(CREATE_POST_ENDPOINT, {
@@ -36,10 +32,8 @@ createPostFrom.addEventListener('submit', (event) => {
         },
         body: JSON.stringify(postData),
       });
-      console.log('Post creation response: ', response);
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         location.reload();
       } else {
         const err = await response.json();
@@ -47,10 +41,7 @@ createPostFrom.addEventListener('submit', (event) => {
         throw new Error(message);
       }
       createPostFrom.reset();
-    })().catch((err) => {
-      console.log(err);
-    });
+    })().catch((err) => {});
   } else {
-    console.log('Validation failed!');
   }
 });

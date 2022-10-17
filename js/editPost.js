@@ -31,9 +31,7 @@ async function getPostById() {
       },
     },
   );
-  console.log(response);
   const data = await response.json();
-  console.log(data);
 
   postTitle.value = data.title;
   postDescription.value = data.body;
@@ -81,8 +79,6 @@ editPostForm.addEventListener('submit', function (event) {
     body: postDescription.value,
     media: postMedia.value,
   };
-
-  console.log(postData);
 
   async function editPost() {
     const response = await fetch(`${GET_POST_BY_ID_ENDPOINT}/${postID}`, {

@@ -28,12 +28,24 @@
         alt=""
       />
       <div
-        class="absolute left-1/2 -translate-x-1/2 flex gap-7 top-1/2 -translate-y-1/2"
+        class="absolute left-1/2 -translate-x-1/2 flex gap-7 top-1/2 -translate-y-1/2 items-center"
       >
         <img class="cursor-pointer" src="svg/home_active.svg" alt="" />
-        <img class="cursor-pointer" src="svg/message.svg" alt="" />
-        <img class="cursor-pointer" src="svg/notification.svg" alt="" />
-        <img class="cursor-pointer" src="svg/heart.svg" alt="" />
+        <div class="flex gap-2 items-center">
+          <label class="text-[#868686]" for="sortPosts"
+            >Sort posts after:</label
+          >
+          <select
+            name="sortPosts"
+            id="sortPosts"
+            class="bg-[#222222] p-2 rounded"
+          >
+            <option value="createdDesc">Created Descending</option>
+            <option value="createdAsc">Created Ascending</option>
+            <option value="titleDesc">Title Descending</option>
+            <option value="titleAsc">Title Ascending</option>
+          </select>
+        </div>
       </div>
       <a
         href="index.html"
@@ -57,23 +69,15 @@
       >
         <div class="flex gap-2 items-center">
           <a href="/index.html"><img src="svg/logo.svg" alt="" /></a>
-          <img
-            id="searchMobileBtn"
-            class="cursor-pointer"
-            src="svg/search.svg"
-            alt=""
-          />
+
           <input
             id="searchInputMobile"
             class="text-sm xsm:text-base rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
             type="search"
             placeholder="Search"
           />
-          <img class="cursor-pointer" src="svg/menu.svg" alt="" />
         </div>
         <div class="flex gap-2 -translate-x-8 sm:-translate-x-5 items-center">
-          <img class="hide-on-search" src="svg/message.svg" alt="" />
-          <img class="hide-on-search" src="svg/notification.svg" alt="" />
           <a href="/profilepage.html"><img src="svg/noAvatar.svg" alt="" /></a>
         </div>
       </div>
@@ -89,11 +93,13 @@
           class="sticky top-0 min-h-[320px] bg-[#282828] rounded-[20px] overflow-hidden"
         >
           <img
+            id="profileSectionBanner"
             class="h-1/2 object-cover w-full"
             src="svg/banner_img.svg"
             alt=""
           />
           <img
+            id="profileSectionAvatar"
             class="absolute h-[100px] w-[100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
             src="svg/noAvatar.svg"
             alt=""
@@ -436,6 +442,5 @@
     <script type="module" src="js/index.js" defer></script>
     <script type="module" src="js/createPost.js" defer></script>
     <script type="module" src="js/getPosts.js" defer></script>
-    <script type="module" src="js/searchPost.js" defer></script>
   </body>
 </html>

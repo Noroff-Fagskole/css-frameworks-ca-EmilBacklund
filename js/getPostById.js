@@ -24,9 +24,7 @@ async function postDetail() {
       },
     },
   );
-  console.log(response);
   const data = await response.json();
-  console.log(data);
 
   let profilePicture = data.author.avatar;
 
@@ -51,7 +49,6 @@ async function postDetail() {
     }
   }
 
-  console.log(data.author.avatar);
   function printOutHtml() {
     let commentSection = ``;
     let avatar = `<img src="svg/noAvatar.svg" alt="" />`;

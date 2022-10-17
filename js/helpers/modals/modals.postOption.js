@@ -6,7 +6,6 @@ function openPostOptionModal() {
 
   for (let i = 0; i < postOption.length; i++) {
     postOption[i].addEventListener('click', function () {
-      console.log(`${i} you clicked me`);
       postOptionModal[i].classList.toggle('hidden');
       postOptionModal[i].classList.toggle('flex');
     });
