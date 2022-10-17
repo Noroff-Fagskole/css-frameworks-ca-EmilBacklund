@@ -45,11 +45,11 @@ searchInputMobile.addEventListener('keyup', (e) => {
   displayPosts(filteredData);
 });
 
-//!
 const sortPostsDropdown = document.querySelector('#sortPosts');
 console.dir(sortPostsDropdown);
 
-let SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
+//! SORTING_POSTS_ENDPOINT = "sort=created&sortOrder=desc" but the endpoint is suddenly broken
+let SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=asc';
 
 sortPostsDropdown.addEventListener('change', (e) => {
   let dropdownValue =
@@ -115,7 +115,7 @@ function handleCommentPostById(postID, data) {
         body: JSON.stringify(data),
       });
       if (response.status === 200) {
-        getAllPosts();
+        getAllPosts(SORTING_POSTS_ENDPOINT);
       }
     } catch (error) {}
   };
@@ -231,7 +231,7 @@ const displayPosts = (data) => {
               
             </div>
             <form data-id="${id}" id="commentForm" class="flex gap-2 xl:gap-5 relative items-center">
-              <img src="${profilePicture}" alt="" />
+              <img class="h-8 w-8 rounded-full" src="${profilePicture}" alt="" />
               <input
               id="comment"
               data-id="${id}"
