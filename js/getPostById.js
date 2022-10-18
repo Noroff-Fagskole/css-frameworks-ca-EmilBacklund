@@ -69,6 +69,10 @@ async function postDetail() {
     return commentSection;
   }
 
+  if (!data.media) {
+    data.media = '';
+  }
+
   postDetailContainer.innerHTML = `
   <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5 mb-5">
          <p>${data.title}</p>
@@ -76,7 +80,7 @@ async function postDetail() {
         <div class="flex flex-col gap-2 xl:gap-5">
           <div class="flex gap-2 xl:gap-5 relative">
             <div class="overflow-hidden w-[100px] h-[100px] rounded-[10px]">
-            <img class="h-full w-full bg-cover" src="${profilePicture}" alt="" />
+            <img class="h-full w-full object-cover" src="${profilePicture}" alt="" />
             </div>
             <div class="flex flex-col justify-between">
               <div>

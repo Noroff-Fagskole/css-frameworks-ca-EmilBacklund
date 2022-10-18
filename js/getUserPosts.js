@@ -70,13 +70,17 @@ async function getUserPosts() {
         }
       }
 
+      if (!posts[i].media) {
+        posts[i].media = '';
+      }
+
       postContainer.innerHTML += `<div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
       <p class="mb-2">${posts[i].title}</p>
       <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
       <div class="flex flex-col gap-2 xl:gap-5">
         <div class="flex gap-2 xl:gap-5 relative">
           <div class="overflow-hidden w-[100px] h-[100px] rounded-[10px]">
-          <img class="h-full w-full bg-cover" src="${profileAvatar}" alt="" />
+          <img class="h-full w-full object-cover" src="${profileAvatar}" alt="" />
           </div>
           <div class="flex flex-col justify-between">
             <div>

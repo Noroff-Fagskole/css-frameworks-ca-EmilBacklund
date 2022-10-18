@@ -186,7 +186,7 @@ const displayPosts = (data) => {
           <div class="flex flex-col gap-2 xl:gap-5">
             <div class="flex gap-2 xl:gap-5 relative">
               <div class="overflow-hidden w-[100px] h-[100px] rounded-[10px]">
-              <img class="h-full w-full bg-cover" src="${profilePicture}" alt="" />
+              <img class="h-full w-full object-cover" src="${profilePicture}" alt="" />
               </div>
               <div class="flex flex-col justify-between">
                 <div>
