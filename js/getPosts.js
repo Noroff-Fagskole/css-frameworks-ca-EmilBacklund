@@ -48,7 +48,6 @@ searchInputMobile.addEventListener('keyup', (e) => {
 const sortPostsDropdown = document.querySelector('#sortPosts');
 console.dir(sortPostsDropdown);
 
-//! SORTING_POSTS_ENDPOINT = "sort=created&sortOrder=desc" but the endpoint is suddenly broken
 let SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
 
 sortPostsDropdown.addEventListener('change', (e) => {
@@ -170,7 +169,7 @@ const displayPosts = (data) => {
             commentSection += `
             <div class="flex gap-5 items-center">
             ${avatar}
-            <p class="w-full"><span class="text-[#BC4848]">${comments[i].owner}:</span> ${comments[i].body}</p>
+            <p class="w-full break-all"><span class="text-[#BC4848]">${comments[i].owner}:</span> ${comments[i].body}</p>
             </div>`;
           }
         }
