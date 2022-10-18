@@ -49,7 +49,7 @@ const sortPostsDropdown = document.querySelector('#sortPosts');
 console.dir(sortPostsDropdown);
 
 //! SORTING_POSTS_ENDPOINT = "sort=created&sortOrder=desc" but the endpoint is suddenly broken
-let SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=asc';
+let SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
 
 sortPostsDropdown.addEventListener('change', (e) => {
   let dropdownValue =
