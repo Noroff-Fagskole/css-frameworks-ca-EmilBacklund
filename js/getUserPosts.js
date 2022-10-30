@@ -40,11 +40,15 @@ async function getUserPosts() {
     document.title = `${jsonResponse.name}'s Profile`;
     profileImg.value = jsonResponse.avatar;
     bannerImg.value = jsonResponse.banner;
-    shareAvatar.src = jsonResponse.avatar;
-    mainAvatarImg.src = jsonResponse.avatar;
+
     mobileAvatar.src = jsonResponse.avatar;
     if (jsonResponse.banner) {
       bannerImage.src = jsonResponse.banner;
+    }
+
+    if (jsonResponse.avatar) {
+      mainAvatarImg.src = jsonResponse.avatar;
+      shareAvatar.src = jsonResponse.avatar;
     }
 
     let profileAvatar = jsonResponse.avatar;
@@ -140,7 +144,7 @@ async function getUserPosts() {
           
         </div>
         <div class="flex gap-2 xl:gap-5 relative items-center">
-          <img class="rounded-full w-8 h-8" src="${profileAvatar}" alt="" />
+          <img class="rounded-full w-8 h-8 object-cover" src="${profileAvatar}" alt="" />
           <input
             class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
             type="text"

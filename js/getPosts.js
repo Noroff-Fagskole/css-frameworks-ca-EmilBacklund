@@ -46,7 +46,6 @@ searchInputMobile.addEventListener('keyup', (e) => {
 });
 
 const sortPostsDropdown = document.querySelector('#sortPosts');
-console.dir(sortPostsDropdown);
 
 let SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
 
