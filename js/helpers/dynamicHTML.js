@@ -1,4 +1,5 @@
 import { getUserNameInLocalStorage } from './localStorage';
+
 export { createHTML };
 
 function createHTML() {
@@ -11,9 +12,9 @@ function createHTML() {
       userName.innerHTML = `${user}`;
     }
   } else if (
-    !user &&
-    (pathname === `index.html` || pathname === `/profilepage.html`)
+    !user
+    && (pathname === 'index.html' || pathname === '/profilepage.html')
   ) {
-    window.location.pathname = `/login.html`;
+    window.location.pathname = '/login.html';
   }
 }

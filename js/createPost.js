@@ -13,10 +13,10 @@ createPostFrom.addEventListener('submit', (event) => {
     isPostBody = true;
   }
 
-  let isFormValid = isPostBody;
+  const isFormValid = isPostBody;
 
   if (isFormValid) {
-    let postTitle = postBody.value.split(' ').slice(0, 3).join(' ') + '..';
+    const postTitle = `${postBody.value.split(' ').slice(0, 3).join(' ')}..`;
 
     const postData = {
       title: postTitle,
@@ -39,7 +39,7 @@ createPostFrom.addEventListener('submit', (event) => {
         throw new Error(message);
       }
       createPostFrom.reset();
-    })().catch((err) => {
+    }()).catch((err) => {
       err;
     });
   }

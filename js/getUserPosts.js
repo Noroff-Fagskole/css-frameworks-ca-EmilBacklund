@@ -5,6 +5,7 @@ import {
 } from './settings/api';
 import { getToken } from './helpers/localStorage';
 import { openPostOptionModal } from './helpers/modals/modals.postOption';
+
 export { getUserPosts };
 
 const timeNow = moment(new Date());
@@ -32,9 +33,9 @@ async function getUserPosts() {
     const { posts } = jsonResponse;
 
     if (!posts.length) {
-      emptyPostNotification.innerHTML = `<p class="mb-5 text-center text-xl">You have not posted anything yet! 🙂</p>`;
+      emptyPostNotification.innerHTML = '<p class="mb-5 text-center text-xl">You have not posted anything yet! 🙂</p>';
     } else {
-      emptyPostNotification.innerHTML = ``;
+      emptyPostNotification.innerHTML = '';
     }
 
     document.title = `${jsonResponse.name}'s Profile`;
@@ -58,7 +59,7 @@ async function getUserPosts() {
     }
 
     for (let i = 0; i < posts.length; i++) {
-      let createdDate = posts[i].created;
+      const createdDate = posts[i].created;
       let time = ' seconds ago';
       let timeSinceCreated = timeNow.diff(createdDate, 'seconds');
       if (timeSinceCreated > 59) {
@@ -183,7 +184,7 @@ function handleDeleteButtons() {
 function handleDeletePostById(postID) {
   const deletePostById = async () => {
     try {
-      let response = await fetch(`${DELETE_POSTS_BY_ID_ENDPOINT}/${postID}`, {
+      const response = await fetch(`${DELETE_POSTS_BY_ID_ENDPOINT}/${postID}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${getToken()}`,

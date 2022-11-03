@@ -7,9 +7,7 @@ const editProfileModal = document.querySelector('#editProfileModal');
 if (editProfileBtn) {
   editProfileBtn.addEventListener('click', editModal);
 
-  editProfileClose.addEventListener('click', () =>
-    editProfileModal.classList.add('hidden'),
-  );
+  editProfileClose.addEventListener('click', () => editProfileModal.classList.add('hidden'));
 }
 
 function editModal() {

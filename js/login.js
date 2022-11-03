@@ -1,5 +1,5 @@
 import { LOGIN_USER_ENDPOINT } from './settings/api';
-import { validateEmail } from './register';
+import validateEmail from './register';
 import {
   saveTokenInLocalStorage,
   saveUserInLocalStorage,
@@ -45,7 +45,7 @@ loginForm.addEventListener('submit', (event) => {
     loginPasswordError.classList.remove('hidden');
   }
 
-  let isLoginFormValid = isEmail && isValidEmail && isPassword;
+  const isLoginFormValid = isEmail && isValidEmail && isPassword;
 
   if (isLoginFormValid) {
     const userData = {

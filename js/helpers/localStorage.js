@@ -18,27 +18,24 @@ function getUserNameInLocalStorage() {
   const user = getFromStorage('user');
   if (user) {
     return user.name;
-  } else {
-    return [];
   }
+  return [];
 }
 
 function getFromStorage(key) {
   const value = localStorage.getItem(key);
   if (value) {
     return JSON.parse(value);
-  } else {
-    return [];
   }
+  return [];
 }
 
 function getToken() {
   const value = localStorage.getItem('token');
   if (value) {
     return JSON.parse(value);
-  } else {
-    return null;
   }
+  return null;
 }
 
 function clearStorage() {
