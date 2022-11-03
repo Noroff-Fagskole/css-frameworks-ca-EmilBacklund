@@ -159,15 +159,15 @@ async function getUserPosts() {
       </div>
     </div>`;
     }
-  } else {
-    const err = await response.json();
   }
 }
 getUserPosts()
   .then(() => {
     handleDeleteButtons();
   })
-  .catch((err) => {});
+  .catch((err) => {
+    postContainer.innerHTML = `Error message: ${err}`;
+  });
 
 function handleDeleteButtons() {
   openPostOptionModal();
@@ -181,7 +181,7 @@ function handleDeleteButtons() {
 }
 
 function handleDeletePostById(postID) {
-  const deleteUserById = async () => {
+  const deletePostById = async () => {
     try {
       let response = await fetch(`${DELETE_POSTS_BY_ID_ENDPOINT}/${postID}`, {
         method: 'DELETE',
@@ -197,7 +197,9 @@ function handleDeletePostById(postID) {
         const err = await response.json();
         throw Error(err);
       }
-    } catch (error) {}
+    } catch (error) {
+      alert(error);
+    }
   };
-  deleteUserById();
+  deletePostById();
 }

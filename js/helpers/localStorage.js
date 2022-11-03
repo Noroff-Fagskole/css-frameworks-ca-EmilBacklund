@@ -16,7 +16,7 @@ function saveUserInLocalStorage(user) {
 
 function getUserNameInLocalStorage() {
   const user = getFromStorage('user');
-  if ('user') {
+  if (user) {
     return user.name;
   } else {
     return [];

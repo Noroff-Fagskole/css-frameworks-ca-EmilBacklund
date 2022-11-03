@@ -1,6 +1,5 @@
 import { getToken } from './helpers/localStorage';
 import { EDIT_PROFILE_ENDPOINT } from './settings/api';
-import { getUserPosts } from './getUserPosts';
 
 const profileImgForm = document.querySelector('#profileImgForm');
 const bannerImgForm = document.querySelector('#bannerImgForm');
@@ -29,7 +28,7 @@ bannerImgForm.addEventListener('submit', (e) => {
 
 function editProfile(value) {
   async function handleProfileEdit() {
-    const response = await fetch(`${EDIT_PROFILE_ENDPOINT}`, {
+    await fetch(`${EDIT_PROFILE_ENDPOINT}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

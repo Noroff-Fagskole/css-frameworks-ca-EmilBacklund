@@ -1,7 +1,6 @@
 import '../style.css';
 import { createHTML } from './helpers/dynamicHTML';
 import { clearStorage } from './helpers/localStorage';
-import { editModal } from './helpers/modals/modals.editProfileImage';
 
 createHTML();
 
