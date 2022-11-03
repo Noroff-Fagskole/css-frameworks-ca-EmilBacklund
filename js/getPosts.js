@@ -2,13 +2,8 @@ import moment from 'moment/moment';
 import { GET_POSTS_ENDPOINT, COMMENT_ON_POST_BY_ID } from './settings/api';
 import { getToken } from './helpers/localStorage';
 
-// const hideOnSearchIcons = document.querySelectorAll('.hide-on-search');
 const searchInputMobile = document.querySelector('#searchInputMobile');
-// const searchMobileBtn = document.querySelector('#searchMobileBtn');
 const searchInputPc = document.querySelector('#searchInputPc');
-
-const profileSectionBanner = document.querySelector('#profileSectionBanner');
-const profileSectionAvatar = document.querySelector('#profileSectionAvatar');
 
 const postHandler = document.querySelector('#postHandler');
 let postData = [];
@@ -49,7 +44,7 @@ const sortPostsDropdown = document.querySelector('#sortPosts');
 
 let SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
 
-sortPostsDropdown.addEventListener('change', (e) => {
+sortPostsDropdown.addEventListener('change', () => {
   let dropdownValue =
     sortPostsDropdown.options[sortPostsDropdown.selectedIndex].value;
   let endpoint = SORTING_POSTS_ENDPOINT;
@@ -99,7 +94,9 @@ getAllPosts(SORTING_POSTS_ENDPOINT)
     }
   })
   .then(() => {})
-  .catch((err) => {});
+  .catch((err) => {
+    alert(err);
+  });
 
 function handleCommentPostById(postID, data) {
   const commentOnPost = async () => {
@@ -115,7 +112,9 @@ function handleCommentPostById(postID, data) {
       if (response.status === 200) {
         getAllPosts(SORTING_POSTS_ENDPOINT);
       }
-    } catch (error) {}
+    } catch (error) {
+      alert(error);
+    }
   };
   commentOnPost();
 }
