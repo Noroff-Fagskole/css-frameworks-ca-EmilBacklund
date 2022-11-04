@@ -23,7 +23,7 @@ const generalErrorMessage = document.querySelector('#generalErrorMessage');
 const allInput = document.querySelectorAll('#contactForm input');
 
 for (let i = 0; i < allInput.length; i += 1) {
-  allInput[i].addEventListener('click', event => {
+  allInput[i].addEventListener('click', (event) => {
     if (!event.target.nextElementSibling.classList.contains('hidden')) {
       event.target.nextElementSibling.classList.add('hidden');
     }
@@ -72,7 +72,7 @@ function validatePassword() {
   return true;
 }
 
-contactForm.addEventListener('submit', event => {
+contactForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   let isUserNameValid = false;
@@ -125,13 +125,12 @@ contactForm.addEventListener('submit', event => {
     email.value = '';
   }
 
-  const isFormValid =
-    isEmailValid &&
-    isEmail &&
-    isValidPasswordMatch &&
-    isConfirmPasswordValid &&
-    isPasswordValid &&
-    isUserNameValid;
+  const isFormValid = isEmailValid
+    && isEmail
+    && isValidPasswordMatch
+    && isConfirmPasswordValid
+    && isPasswordValid
+    && isUserNameValid;
 
   if (isFormValid) {
     generalErrorMessage.innerHTML = 'Create account success ❤️';
@@ -160,7 +159,7 @@ contactForm.addEventListener('submit', event => {
       const err = await response.json();
       const message = `An error occurred: ${err.message}`;
       throw new Error(message);
-    })().catch(err => {
+    }()).catch((err) => {
       generalErrorMessage.innerHTML = `Request failed! ${err.message}`;
     });
   } else {
