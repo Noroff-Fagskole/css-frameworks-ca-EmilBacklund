@@ -33,7 +33,8 @@ async function getUserPosts() {
     const { posts } = jsonResponse;
 
     if (!posts.length) {
-      emptyPostNotification.innerHTML = '<p class="mb-5 text-center text-xl">You have not posted anything yet! 🙂</p>';
+      emptyPostNotification.innerHTML =
+        '<p class="mb-5 text-center text-xl">You have not posted anything yet! 🙂</p>';
     } else {
       emptyPostNotification.innerHTML = '';
     }
@@ -58,7 +59,7 @@ async function getUserPosts() {
       profileAvatar = '/svg/noAvatar.svg';
     }
 
-    for (let i = 0; i < posts.length; i++) {
+    for (let i = 0; i < posts.length; i += 1) {
       const createdDate = posts[i].created;
       let time = ' seconds ago';
       let timeSinceCreated = timeNow.diff(createdDate, 'seconds');
@@ -166,7 +167,7 @@ getUserPosts()
   .then(() => {
     handleDeleteButtons();
   })
-  .catch((err) => {
+  .catch(err => {
     postContainer.innerHTML = `Error message: ${err}`;
   });
 
@@ -175,7 +176,7 @@ function handleDeleteButtons() {
   const deleteBtn = document.querySelectorAll('.delete-post-btn');
 
   for (let i = 0; i < deleteBtn.length; i++) {
-    deleteBtn[i].addEventListener('click', (e) => {
+    deleteBtn[i].addEventListener('click', e => {
       handleDeletePostById(e.target.dataset.id);
     });
   }

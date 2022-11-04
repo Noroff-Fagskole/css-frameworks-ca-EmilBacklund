@@ -6,6 +6,20 @@ const bannerImgForm = document.querySelector('#bannerImgForm');
 const profileImg = document.querySelector('#profileImg');
 const bannerImg = document.querySelector('#bannerImg');
 
+function editProfile(value) {
+  async function handleProfileEdit() {
+    await fetch(`${EDIT_PROFILE_ENDPOINT}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${getToken()}`,
+      },
+      body: JSON.stringify(value),
+    });
+  }
+  handleProfileEdit();
+}
+
 profileImgForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -25,17 +39,3 @@ bannerImgForm.addEventListener('submit', (e) => {
 
   editProfile(bannerImgData);
 });
-
-function editProfile(value) {
-  async function handleProfileEdit() {
-    await fetch(`${EDIT_PROFILE_ENDPOINT}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${getToken()}`,
-      },
-      body: JSON.stringify(value),
-    });
-  }
-  handleProfileEdit();
-}

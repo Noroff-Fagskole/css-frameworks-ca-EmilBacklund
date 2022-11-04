@@ -5,11 +5,13 @@ module.exports = {
   },
   extends: 'airbnb-base',
   overrides: [
+    {
+      files: ['js'],
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  rules: {
-  },
+  rules: {},
 };

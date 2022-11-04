@@ -8,8 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install",
-    "lint": "eslint ./js",
-    "lint fix": "npx eslint --fix js"
+    "lint": "eslint js/*",
+    "lint-fix": "npx eslint --fix js/."
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     "vite": "^3.0.9"
   },
   "dependencies": {
+    "cypress": "^10.11.0",
     "moment": "^2.29.4"
   }
 }
