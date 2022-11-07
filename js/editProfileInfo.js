@@ -6,26 +6,6 @@ const bannerImgForm = document.querySelector('#bannerImgForm');
 const profileImg = document.querySelector('#profileImg');
 const bannerImg = document.querySelector('#bannerImg');
 
-profileImgForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const profileImgData = {
-    avatar: profileImg.value,
-  };
-
-  editProfile(profileImgData);
-});
-
-bannerImgForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const bannerImgData = {
-    banner: bannerImg.value,
-  };
-
-  editProfile(bannerImgData);
-});
-
 function editProfile(value) {
   async function handleProfileEdit() {
     await fetch(`${EDIT_PROFILE_ENDPOINT}`, {
@@ -39,3 +19,23 @@ function editProfile(value) {
   }
   handleProfileEdit();
 }
+
+profileImgForm.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const profileImgData = {
+    avatar: profileImg.value,
+  };
+
+  editProfile(profileImgData);
+});
+
+bannerImgForm.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const bannerImgData = {
+    banner: bannerImg.value,
+  };
+
+  editProfile(bannerImgData);
+});

@@ -1,7 +1,5 @@
 import { REGISTER_USER_ENDPOINT } from './settings/api';
 
-export { validateEmail };
-
 const contactForm = document.querySelector('#contactForm');
 
 const username = document.querySelector('#username');
@@ -24,7 +22,7 @@ const generalErrorMessage = document.querySelector('#generalErrorMessage');
 
 const allInput = document.querySelectorAll('#contactForm input');
 
-for (let i = 0; i < allInput.length; i++) {
+for (let i = 0; i < allInput.length; i += 1) {
   allInput[i].addEventListener('click', (event) => {
     if (!event.target.nextElementSibling.classList.contains('hidden')) {
       event.target.nextElementSibling.classList.add('hidden');
@@ -41,6 +39,37 @@ for (let i = 0; i < allInput.length; i++) {
       }
     }
   });
+}
+
+function validateEmail(mail) {
+  const regEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(stud.noroff.no|noroff.no)$/;
+  if (mail.match(regEx)) {
+    return true;
+  }
+  return false;
+}
+
+export default validateEmail;
+
+function validatePassword() {
+  const passwordValue = password.value;
+  const confirmPasswordValue = confirmPassword.value;
+
+  if (!passwordValue) {
+    return false;
+  }
+  if (!confirmPasswordValue) {
+    confirmPasswordNotMatching.classList.add('hidden');
+    return false;
+  }
+  if (passwordValue !== confirmPasswordValue) {
+    confirmPasswordNotMatching.classList.remove('hidden');
+    confirmPasswordError.classList.add('hidden');
+    return false;
+  }
+  confirmPasswordNotMatching.classList.add('hidden');
+  confirmPasswordError.classList.add('hidden');
+  return true;
 }
 
 contactForm.addEventListener('submit', (event) => {
@@ -96,13 +125,12 @@ contactForm.addEventListener('submit', (event) => {
     email.value = '';
   }
 
-  let isFormValid =
-    isEmailValid &&
-    isEmail &&
-    isValidPasswordMatch &&
-    isConfirmPasswordValid &&
-    isPasswordValid &&
-    isUserNameValid;
+  const isFormValid = isEmailValid
+    && isEmail
+    && isValidPasswordMatch
+    && isConfirmPasswordValid
+    && isPasswordValid
+    && isUserNameValid;
 
   if (isFormValid) {
     generalErrorMessage.innerHTML = 'Create account success ❤️';
@@ -127,12 +155,11 @@ contactForm.addEventListener('submit', (event) => {
       if (response.ok) {
         const data = await response.json();
         return data;
-      } else {
-        const err = await response.json();
-        const message = `An error occurred: ${err.message}`;
-        throw new Error(message);
       }
-    })().catch((err) => {
+      const err = await response.json();
+      const message = `An error occurred: ${err.message}`;
+      throw new Error(message);
+    }()).catch((err) => {
       generalErrorMessage.innerHTML = `Request failed! ${err.message}`;
     });
   } else {
@@ -141,34 +168,3 @@ contactForm.addEventListener('submit', (event) => {
     generalErrorMessage.classList.add('text-red-500');
   }
 });
-
-function validatePassword() {
-  const passwordValue = password.value;
-  const confirmPasswordValue = confirmPassword.value;
-
-  if (!passwordValue) {
-    return false;
-  }
-  if (!confirmPasswordValue) {
-    confirmPasswordNotMatching.classList.add('hidden');
-    return false;
-  }
-  if (passwordValue !== confirmPasswordValue) {
-    confirmPasswordNotMatching.classList.remove('hidden');
-    confirmPasswordError.classList.add('hidden');
-    return false;
-  } else {
-    confirmPasswordNotMatching.classList.add('hidden');
-    confirmPasswordError.classList.add('hidden');
-    return true;
-  }
-}
-
-function validateEmail(email) {
-  const regEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(stud.noroff.no|noroff.no)$/;
-  if (email.match(regEx)) {
-    return true;
-  } else {
-    return false;
-  }
-}

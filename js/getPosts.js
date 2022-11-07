@@ -18,12 +18,10 @@ searchInputPc.addEventListener('keyup', (e) => {
   const searchValue = e.target.value;
   searchInputMobile.value = e.target.value;
 
-  const filteredData = postData.filter(({ title, body }) => {
-    return (
-      title.toLowerCase().includes(searchValue) ||
-      body.toLowerCase().includes(searchValue)
-    );
-  });
+  const filteredData = postData.filter(({ title, body }) => (
+    title.toLowerCase().includes(searchValue)
+      || body.toLowerCase().includes(searchValue)
+  ));
   displayPosts(filteredData);
 });
 
@@ -31,22 +29,19 @@ searchInputMobile.addEventListener('keyup', (e) => {
   const searchValue = e.target.value;
   searchInputPc.value = e.target.value;
 
-  const filteredData = postData.filter(({ title, body }) => {
-    return (
-      title.toLowerCase().includes(searchValue) ||
-      body.toLowerCase().includes(searchValue)
-    );
-  });
+  const filteredData = postData.filter(({ title, body }) => (
+    title.toLowerCase().includes(searchValue)
+      || body.toLowerCase().includes(searchValue)
+  ));
   displayPosts(filteredData);
 });
 
 const sortPostsDropdown = document.querySelector('#sortPosts');
 
-let SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
+const SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
 
 sortPostsDropdown.addEventListener('change', () => {
-  let dropdownValue =
-    sortPostsDropdown.options[sortPostsDropdown.selectedIndex].value;
+  const dropdownValue = sortPostsDropdown.options[sortPostsDropdown.selectedIndex].value;
   let endpoint = SORTING_POSTS_ENDPOINT;
   if (dropdownValue === 'createdDesc') {
     endpoint = 'sort=created&sortOrder=desc';
@@ -101,7 +96,7 @@ getAllPosts(SORTING_POSTS_ENDPOINT)
 function handleCommentPostById(postID, data) {
   const commentOnPost = async () => {
     try {
-      let response = await fetch(`${COMMENT_ON_POST_BY_ID}/${postID}/comment`, {
+      const response = await fetch(`${COMMENT_ON_POST_BY_ID}/${postID}/comment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -121,7 +116,9 @@ function handleCommentPostById(postID, data) {
 
 const displayPosts = (data) => {
   const HTML_POSTS = data
-    .map(({ body, title, created, _count, media, author, comments, id }) => {
+    .map(({
+      body, title, created, _count, media, author, comments, id,
+    }) => {
       function isImage(url) {
         return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
       }
@@ -133,7 +130,7 @@ const displayPosts = (data) => {
       let profilePicture = author.avatar;
 
       if (!isImage(profilePicture)) {
-        profilePicture = `svg/noAvatar.svg`;
+        profilePicture = 'svg/noAvatar.svg';
       }
 
       const createdDate = created;
@@ -154,10 +151,10 @@ const displayPosts = (data) => {
       }
 
       function printOutHtml() {
-        let commentSection = ``;
-        let avatar = `<img src="svg/noAvatar.svg" alt="" />`;
+        let commentSection = '';
+        let avatar = '<img src="svg/noAvatar.svg" alt="" />';
 
-        //TODO need to fix avatar image to correct user
+        // TODO need to fix avatar image to correct user
         if (isImage(author.avatar)) {
           avatar = `<img class="rounded-full h-8 w-8" src="${author.avatar}" alt="" />`;
         }

@@ -1,6 +1,6 @@
+import moment from 'moment';
 import { GET_POST_BY_ID_ENDPOINT } from './settings/api';
 import { getToken } from './helpers/localStorage';
-import moment from 'moment';
 
 const timeNow = moment(new Date());
 
@@ -72,7 +72,7 @@ async function getPostById() {
 
 getPostById();
 
-editPostForm.addEventListener('submit', function (event) {
+editPostForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const postData = {
     title: postTitle.value,

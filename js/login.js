@@ -1,5 +1,5 @@
 import { LOGIN_USER_ENDPOINT } from './settings/api';
-import { validateEmail } from './register';
+import validateEmail from './register';
 import {
   saveTokenInLocalStorage,
   saveUserInLocalStorage,
@@ -45,7 +45,7 @@ loginForm.addEventListener('submit', (event) => {
     loginPasswordError.classList.remove('hidden');
   }
 
-  let isLoginFormValid = isEmail && isValidEmail && isPassword;
+  const isLoginFormValid = isEmail && isValidEmail && isPassword;
 
   if (isLoginFormValid) {
     const userData = {
@@ -78,7 +78,7 @@ loginForm.addEventListener('submit', (event) => {
         const err = await response.json();
         throw new Error(err.message);
       }
-    })().catch((error) => {
+    }()).catch((error) => {
       generalErrorMessage.innerHTML = `${error}`;
       generalErrorMessage.classList.add('text-red-400');
     });

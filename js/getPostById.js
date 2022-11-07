@@ -29,7 +29,7 @@ async function postDetail() {
   let profilePicture = data.author.avatar;
 
   if (!data.author.avatar) {
-    profilePicture = `svg/noAvatar.svg`;
+    profilePicture = 'svg/noAvatar.svg';
   }
 
   const createdDate = data.created;
@@ -50,8 +50,8 @@ async function postDetail() {
   }
 
   function printOutHtml() {
-    let commentSection = ``;
-    let avatar = `<img src="svg/noAvatar.svg" alt="" />`;
+    let commentSection = '';
+    let avatar = '<img src="svg/noAvatar.svg" alt="" />';
 
     if (data.author.avatar) {
       avatar = `<img class="rounded-full h-8 w-8" src="${data.author.avatar}" alt="" />`;
