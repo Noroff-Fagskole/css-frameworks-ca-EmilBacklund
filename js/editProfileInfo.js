@@ -20,7 +20,7 @@ function editProfile(value) {
   handleProfileEdit();
 }
 
-profileImgForm.addEventListener('submit', (e) => {
+profileImgForm.addEventListener('submit', e => {
   e.preventDefault();
 
   const profileImgData = {
@@ -30,7 +30,7 @@ profileImgForm.addEventListener('submit', (e) => {
   editProfile(profileImgData);
 });
 
-bannerImgForm.addEventListener('submit', (e) => {
+bannerImgForm.addEventListener('submit', e => {
   e.preventDefault();
 
   const bannerImgData = {
