@@ -90,7 +90,7 @@ getAllPosts(SORTING_POSTS_ENDPOINT)
   })
   .then(() => {})
   .catch((err) => {
-    alert(err);
+    // alert(err);
   });
 
 function handleCommentPostById(postID, data) {
@@ -222,7 +222,7 @@ const displayPosts = (data) => {
               </div>
                 <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
                      ${printOutHtml()}
-              
+
             </div>
             <form data-id="${id}" id="commentForm" class="flex gap-2 xl:gap-5 relative items-center">
               <img class="h-8 w-8 rounded-full" src="${profilePicture}" alt="" />

@@ -13,7 +13,7 @@ function createHTML() {
     }
   } else if (
     !user
-    && (pathname === 'index.html' || pathname === '/profilepage.html')
+    && (pathname === 'index.html' || pathname === '/profilePage.html')
   ) {
     window.location.pathname = '/login.html';
   }

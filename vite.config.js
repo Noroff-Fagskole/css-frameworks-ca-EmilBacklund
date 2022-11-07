@@ -1,17 +1,19 @@
-const path = require('path');
+const {resolve} = require('path');
 
 export default {
+  root: resolve(__dirname, 'src'),
   build: {
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'src/login.html'),
-        homepage: path.resolve(__dirname, 'src/index.html'),
-        profilepage: path.resolve(__dirname, 'src/profilepage.html'),
-        userPost: path.resolve(__dirname, 'src/userPost.html'),
-        editPost: path.resolve(__dirname, 'src/editPost.html'),
+        main: resolve(__dirname, 'src/login.html'),
+        homePage: resolve(__dirname, 'src/index.html'),
+        profilePage: resolve(__dirname, 'src/profilePage.html'),
+        userPost: resolve(__dirname, 'src/userPost.html'),
+        editPost: resolve(__dirname, 'src/editPost.html'),
       },
     },
   },
+  outDir: '../dist',
   resolve: {
     alias: {},
   },
