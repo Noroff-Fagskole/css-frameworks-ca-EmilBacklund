@@ -12,8 +12,9 @@ export default {
         editPost: resolve(__dirname, 'src/editPost.html'),
       },
     },
+    outDir: '../dist',
   },
-  outDir: '../dist',
+  
   resolve: {
     alias: {},
   },
