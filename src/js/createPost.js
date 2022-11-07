@@ -2,6 +2,8 @@ import { getToken } from './helpers/localStorage';
 import { CREATE_POST_ENDPOINT } from './settings/api';
 
 const createPostFrom = document.querySelector('#createPostForm');
+const profilePagePostError = document.querySelector('#emptyPostNotification');
+const homePagePostError = document.querySelector('#errorHandler');
 
 const postBody = document.querySelector('#postBody');
 
@@ -36,14 +38,20 @@ createPostFrom.addEventListener('submit', (event) => {
         body: JSON.stringify(postData),
       });
       if (response.ok) {
-        location.reload();
+        window.location.reload();
       } else {
         const message = 'Creating post failed';
         throw new Error(message);
       }
       createPostFrom.reset();
     })().catch((err) => {
-      err;
+      if (profilePagePostError) {
+        profilePagePostError.innerHTML = `${err}`;
+        profilePagePostError.classList.remove('hidden');
+      } else if (homePagePostError) {
+        homePagePostError.innerHTML = `${err}`;
+        homePagePostError.classList.remove('hidden');
+      }
     });
   }
 });

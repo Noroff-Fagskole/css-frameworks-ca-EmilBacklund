@@ -4,7 +4,7 @@ import {
   DELETE_POSTS_BY_ID_ENDPOINT,
 } from './settings/api';
 import { getToken } from './helpers/localStorage';
-import { openPostOptionModal } from './helpers/modals/modals.postOption';
+import openPostOptionModal from './helpers/modals/modals.postOption';
 
 export { getUserPosts };
 

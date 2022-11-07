@@ -27,6 +27,8 @@ async function postDetail() {
   const data = await response.json();
 
   let profilePicture = data.author.avatar;
+  const totalComments = data._count.comments; // eslint-disable-line no-underscore-dangle
+  const totalReactions = data._count.reactions; // eslint-disable-line no-underscore-dangle
 
   if (!data.author.avatar) {
     profilePicture = 'svg/noAvatar.svg';
@@ -108,11 +110,11 @@ async function postDetail() {
           <img class="bg-cover" src="${data.media}" />
           <div class="flex flex-col gap-2">
             <div class="flex items-center gap-2 text-[#868686] text-sm">
-              <p>${data._count.comments} comments</p>
+              <p>${totalComments} comments</p>
               <div
                 class="w-[5px] h-[5px] bg-[#868686] rounded-[5px]"
               ></div>
-              <p>${data._count.reactions} reactions</p>
+              <p>${totalReactions} reactions</p>
             </div>
             <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
             <div class="flex gap-2 xl:gap-5">
