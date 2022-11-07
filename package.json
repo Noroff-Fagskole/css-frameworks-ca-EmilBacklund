@@ -8,8 +8,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm install",
-    "lint": "eslint js/*",
-    "lint-fix": "npx eslint --fix js/."
+    "lint": "eslint src/js/*",
+    "lint-fix": "npx eslint --fix src/js/.",
+    "prettier-write": "npx prettier --write ./**/*.{js,html}",
+    "prettier-check": "npx prettier --check ./**/*.{js,html}"
   },
   "repository": {
     "type": "git",

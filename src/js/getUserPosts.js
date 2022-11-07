@@ -167,7 +167,7 @@ getUserPosts()
   .then(() => {
     handleDeleteButtons();
   })
-  .catch(err => {
+  .catch((err) => {
     postContainer.innerHTML = `Error message: ${err}`;
   });
 
@@ -176,7 +176,7 @@ function handleDeleteButtons() {
   const deleteBtn = document.querySelectorAll('.delete-post-btn');
 
   for (let i = 0; i < deleteBtn.length; i++) {
-    deleteBtn[i].addEventListener('click', e => {
+    deleteBtn[i].addEventListener('click', (e) => {
       handleDeletePostById(e.target.dataset.id);
     });
   }

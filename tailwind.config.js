@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./src/*.{html,js}"],
+  content: ['./src/*.{html,js}', './src/js/*.js', './src/js/helpers/*.js'],
   theme: {
     extend: {
       fontFamily: {

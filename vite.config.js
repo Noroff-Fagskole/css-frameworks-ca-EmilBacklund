@@ -1,4 +1,4 @@
-const {resolve} = require('path');
+const { resolve } = require('path');
 
 export default {
   root: resolve(__dirname, 'src'),

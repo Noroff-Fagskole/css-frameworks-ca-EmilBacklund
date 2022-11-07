@@ -5,10 +5,8 @@ const BASE_URL = 'https://nf-api.onrender.com/';
 const REGISTER_USER_ENDPOINT = `${BASE_URL}api/v1/social/auth/register`;
 const LOGIN_USER_ENDPOINT = `${BASE_URL}api/v1/social/auth/login`;
 const CREATE_POST_ENDPOINT = `${BASE_URL}api/v1/social/posts`;
-const GET_POSTS_ENDPOINT = `${BASE_URL
-}api/v1/social/posts/?_author=true&_comments=true&_reactions=true&&?`;
-const GET_LOGGED_IN_USER_POSTS_ENDPOINT = `${BASE_URL
-}api/v1/social/profiles/${getUserNameInLocalStorage()}?_posts=true&_comments=true`;
+const GET_POSTS_ENDPOINT = `${BASE_URL}api/v1/social/posts/?_author=true&_comments=true&_reactions=true&&?`;
+const GET_LOGGED_IN_USER_POSTS_ENDPOINT = `${BASE_URL}api/v1/social/profiles/${getUserNameInLocalStorage()}?_posts=true&_comments=true`;
 const DELETE_POSTS_BY_ID_ENDPOINT = `${BASE_URL}api/v1/social/posts`;
 const GET_POST_BY_ID_ENDPOINT = `${BASE_URL}api/v1/social/posts`;
 const COMMENT_ON_POST_BY_ID = `${BASE_URL}api/v1/social/posts`;
