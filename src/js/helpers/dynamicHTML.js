@@ -12,8 +12,8 @@ function createHTML() {
       userName.innerHTML = `${user}`;
     }
   } else if (
-    !user
-    && (pathname === 'index.html' || pathname === '/profilepage.html')
+    !user &&
+    (pathname === 'index.html' || pathname === '/profilePage.html')
   ) {
     window.location.pathname = '/login.html';
   }

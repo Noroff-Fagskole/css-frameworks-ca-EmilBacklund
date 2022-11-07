@@ -3,7 +3,7 @@ import { getToken } from './helpers/localStorage';
 import { GET_POST_BY_ID_ENDPOINT } from './settings/api';
 
 if (!getToken()) {
-  location.href = '/login.html';
+  window.location.href = '/login.html';
 }
 
 const paramString = window.location.search;
@@ -57,7 +57,7 @@ async function postDetail() {
       avatar = `<img class="rounded-full h-8 w-8" src="${data.author.avatar}" alt="" />`;
     }
 
-    for (let i = 0; i < data.comments.length; i++) {
+    for (let i = 0; i < data.comments.length; i += 1) {
       if (data.comments[i].body) {
         commentSection += `
           <div class="flex gap-5 items-center">

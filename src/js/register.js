@@ -125,12 +125,13 @@ contactForm.addEventListener('submit', (event) => {
     email.value = '';
   }
 
-  const isFormValid = isEmailValid
-    && isEmail
-    && isValidPasswordMatch
-    && isConfirmPasswordValid
-    && isPasswordValid
-    && isUserNameValid;
+  const isFormValid =
+    isEmailValid &&
+    isEmail &&
+    isValidPasswordMatch &&
+    isConfirmPasswordValid &&
+    isPasswordValid &&
+    isUserNameValid;
 
   if (isFormValid) {
     generalErrorMessage.innerHTML = 'Create account success ❤️';
@@ -159,7 +160,7 @@ contactForm.addEventListener('submit', (event) => {
       const err = await response.json();
       const message = `An error occurred: ${err.message}`;
       throw new Error(message);
-    }()).catch((err) => {
+    })().catch((err) => {
       generalErrorMessage.innerHTML = `Request failed! ${err.message}`;
     });
   } else {

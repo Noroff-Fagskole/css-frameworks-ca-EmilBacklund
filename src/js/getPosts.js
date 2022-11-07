@@ -18,10 +18,11 @@ searchInputPc.addEventListener('keyup', (e) => {
   const searchValue = e.target.value;
   searchInputMobile.value = e.target.value;
 
-  const filteredData = postData.filter(({ title, body }) => (
-    title.toLowerCase().includes(searchValue)
-      || body.toLowerCase().includes(searchValue)
-  ));
+  const filteredData = postData.filter(
+    ({ title, body }) =>
+      title.toLowerCase().includes(searchValue) ||
+      body.toLowerCase().includes(searchValue),
+  );
   displayPosts(filteredData);
 });
 
@@ -29,10 +30,11 @@ searchInputMobile.addEventListener('keyup', (e) => {
   const searchValue = e.target.value;
   searchInputPc.value = e.target.value;
 
-  const filteredData = postData.filter(({ title, body }) => (
-    title.toLowerCase().includes(searchValue)
-      || body.toLowerCase().includes(searchValue)
-  ));
+  const filteredData = postData.filter(
+    ({ title, body }) =>
+      title.toLowerCase().includes(searchValue) ||
+      body.toLowerCase().includes(searchValue),
+  );
   displayPosts(filteredData);
 });
 
@@ -41,7 +43,8 @@ const sortPostsDropdown = document.querySelector('#sortPosts');
 const SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
 
 sortPostsDropdown.addEventListener('change', () => {
-  const dropdownValue = sortPostsDropdown.options[sortPostsDropdown.selectedIndex].value;
+  const dropdownValue =
+    sortPostsDropdown.options[sortPostsDropdown.selectedIndex].value;
   let endpoint = SORTING_POSTS_ENDPOINT;
   if (dropdownValue === 'createdDesc') {
     endpoint = 'sort=created&sortOrder=desc';
@@ -76,7 +79,7 @@ getAllPosts(SORTING_POSTS_ENDPOINT)
     const commentForm = document.querySelectorAll('#commentForm');
     const comment = document.querySelectorAll('#comment');
 
-    for (let i = 0; i < commentForm.length; i++) {
+    for (let i = 0; i < commentForm.length; i += 1) {
       commentForm[i].addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -90,20 +93,23 @@ getAllPosts(SORTING_POSTS_ENDPOINT)
   })
   .then(() => {})
   .catch((err) => {
-    alert(err);
+    // alert(err);
   });
 
 function handleCommentPostById(postID, data) {
   const commentOnPost = async () => {
     try {
-      const response = await fetch(`${COMMENT_ON_POST_BY_ID}/${postID}/comment`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${getToken()}`,
+      const response = await fetch(
+        `${COMMENT_ON_POST_BY_ID}/${postID}/comment`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${getToken()}`,
+          },
+          body: JSON.stringify(data),
         },
-        body: JSON.stringify(data),
-      });
+      );
       if (response.status === 200) {
         getAllPosts(SORTING_POSTS_ENDPOINT);
       }
@@ -116,9 +122,7 @@ function handleCommentPostById(postID, data) {
 
 const displayPosts = (data) => {
   const HTML_POSTS = data
-    .map(({
-      body, title, created, _count, media, author, comments, id,
-    }) => {
+    .map(({ body, title, created, _count, media, author, comments, id }) => {
       function isImage(url) {
         return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
       }
@@ -159,7 +163,7 @@ const displayPosts = (data) => {
           avatar = `<img class="rounded-full h-8 w-8" src="${author.avatar}" alt="" />`;
         }
 
-        for (let i = 0; i < comments.length; i++) {
+        for (let i = 0; i < comments.length; i += 1) {
           if (comments[i].body) {
             commentSection += `
             <div class="flex gap-5 items-center">
@@ -222,7 +226,7 @@ const displayPosts = (data) => {
               </div>
                 <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
                      ${printOutHtml()}
-              
+
             </div>
             <form data-id="${id}" id="commentForm" class="flex gap-2 xl:gap-5 relative items-center">
               <img class="h-8 w-8 rounded-full" src="${profilePicture}" alt="" />
