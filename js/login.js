@@ -78,7 +78,7 @@ loginForm.addEventListener('submit', (event) => {
         const err = await response.json();
         throw new Error(err.message);
       }
-    })().catch((error) => {
+    }()).catch((error) => {
       generalErrorMessage.innerHTML = `${error}`;
       generalErrorMessage.classList.add('text-red-400');
     });

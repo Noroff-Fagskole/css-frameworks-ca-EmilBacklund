@@ -6,8 +6,6 @@ import {
 import { getToken } from './helpers/localStorage';
 import openPostOptionModal from './helpers/modals/modals.postOption';
 
-export { getUserPosts };
-
 const timeNow = moment(new Date());
 
 const postContainer = document.querySelector('#myPostContainer');
@@ -18,6 +16,17 @@ const shareAvatar = document.querySelector('#shareAvatar');
 const mainAvatarImg = document.querySelector('#mainAvatarImg');
 const mobileAvatar = document.querySelector('#mobileAvatar');
 const bannerImage = document.querySelector('#bannerImage');
+
+function handleDeleteButtons() {
+  openPostOptionModal();
+  const deleteBtn = document.querySelectorAll('.delete-post-btn');
+
+  for (let i = 0; i < deleteBtn.length; i += 1) {
+    deleteBtn[i].addEventListener('click', (e) => {
+      handleDeletePostById(e.target.dataset.id); // eslint-disable-line no-use-before-define
+    });
+  }
+}
 
 async function getUserPosts() {
   const response = await fetch(`${GET_LOGGED_IN_USER_POSTS_ENDPOINT}`, {
@@ -171,17 +180,6 @@ getUserPosts()
     postContainer.innerHTML = `Error message: ${err}`;
   });
 
-function handleDeleteButtons() {
-  openPostOptionModal();
-  const deleteBtn = document.querySelectorAll('.delete-post-btn');
-
-  for (let i = 0; i < deleteBtn.length; i++) {
-    deleteBtn[i].addEventListener('click', (e) => {
-      handleDeletePostById(e.target.dataset.id);
-    });
-  }
-}
-
 function handleDeletePostById(postID) {
   const deletePostById = async () => {
     try {
@@ -196,11 +194,11 @@ function handleDeletePostById(postID) {
           handleDeleteButtons();
         });
       } else {
-        const err = await response.json();
-        throw Error(err);
+        const errMessage = 'Deleting post failed';
+        throw new Error(errMessage);
       }
     } catch (error) {
-      alert(error);
+      postContainer.innerHTML = `${error}`;
     }
   };
   deletePostById();
