@@ -1,10 +1,8 @@
-export { openPostOptionModal };
-
 function openPostOptionModal() {
   const postOption = document.querySelectorAll('.postOption');
   const postOptionModal = document.querySelectorAll('.postOptionModal');
 
-  for (let i = 0; i < postOption.length; i++) {
+  for (let i = 0; i < postOption.length; i += 1) {
     postOption[i].addEventListener('click', () => {
       postOptionModal[i].classList.toggle('hidden');
       postOptionModal[i].classList.toggle('flex');
@@ -17,3 +15,5 @@ function openPostOptionModal() {
     });
   }
 }
+
+export default openPostOptionModal;

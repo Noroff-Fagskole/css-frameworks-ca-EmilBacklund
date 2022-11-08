@@ -5,7 +5,7 @@ import { getToken } from './helpers/localStorage';
 const timeNow = moment(new Date());
 
 if (!getToken()) {
-  location.href = '/login.html';
+  window.location.href = '/login.html';
 }
 
 const paramString = window.location.search;
@@ -90,7 +90,7 @@ editPostForm.addEventListener('submit', (event) => {
       body: JSON.stringify(postData),
     });
     if (response.ok) {
-      location.href = `userPost.html?post_id=${postID}`;
+      window.location.href = `userPost.html?post_id=${postID}`;
     }
   }
   editPost();

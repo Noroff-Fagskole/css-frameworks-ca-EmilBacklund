@@ -1,5 +1,5 @@
 import '../style.css';
-import { createHTML } from './helpers/dynamicHTML';
+import createHTML from './helpers/dynamicHTML';
 import { clearStorage } from './helpers/localStorage';
 
 createHTML();

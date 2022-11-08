@@ -1,7 +1,5 @@
 import { getUserNameInLocalStorage } from './localStorage';
 
-export { createHTML };
-
 function createHTML() {
   const { pathname } = document.location;
   const userName = document.querySelector('#userName');
@@ -18,3 +16,5 @@ function createHTML() {
     window.location.pathname = '/login.html';
   }
 }
+
+export default createHTML;

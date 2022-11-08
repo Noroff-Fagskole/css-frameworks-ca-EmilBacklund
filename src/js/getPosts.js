@@ -10,116 +10,6 @@ let postData = [];
 
 const timeNow = moment(new Date());
 
-if (!getToken()) {
-  location.href = '/login.html';
-}
-
-searchInputPc.addEventListener('keyup', (e) => {
-  const searchValue = e.target.value;
-  searchInputMobile.value = e.target.value;
-
-  const filteredData = postData.filter(
-    ({ title, body }) =>
-      title.toLowerCase().includes(searchValue) ||
-      body.toLowerCase().includes(searchValue),
-  );
-  displayPosts(filteredData);
-});
-
-searchInputMobile.addEventListener('keyup', (e) => {
-  const searchValue = e.target.value;
-  searchInputPc.value = e.target.value;
-
-  const filteredData = postData.filter(
-    ({ title, body }) =>
-      title.toLowerCase().includes(searchValue) ||
-      body.toLowerCase().includes(searchValue),
-  );
-  displayPosts(filteredData);
-});
-
-const sortPostsDropdown = document.querySelector('#sortPosts');
-
-const SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
-
-sortPostsDropdown.addEventListener('change', () => {
-  const dropdownValue =
-    sortPostsDropdown.options[sortPostsDropdown.selectedIndex].value;
-  let endpoint = SORTING_POSTS_ENDPOINT;
-  if (dropdownValue === 'createdDesc') {
-    endpoint = 'sort=created&sortOrder=desc';
-  } else if (dropdownValue === 'createdAsc') {
-    endpoint = 'sort=created&sortOrder=asc';
-  } else if (dropdownValue === 'titleDesc') {
-    endpoint = 'sort=title&sortOrder=desc';
-  } else if (dropdownValue === 'titleAsc') {
-    endpoint = 'sort=title&sortOrder=asc';
-  }
-  getAllPosts(endpoint);
-});
-
-async function getAllPosts(endpoint) {
-  const response = await fetch(`${GET_POSTS_ENDPOINT}${endpoint}`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${getToken()}`,
-    },
-  });
-
-  if (response.ok) {
-    postData = await response.json();
-    displayPosts(postData);
-  } else {
-    const err = await response.json();
-    throw new Error(err);
-  }
-}
-getAllPosts(SORTING_POSTS_ENDPOINT)
-  .then(() => {
-    const commentForm = document.querySelectorAll('#commentForm');
-    const comment = document.querySelectorAll('#comment');
-
-    for (let i = 0; i < commentForm.length; i += 1) {
-      commentForm[i].addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const postData = {
-          body: comment[i].value,
-        };
-
-        handleCommentPostById(comment[i].dataset.id, postData);
-      });
-    }
-  })
-  .then(() => {})
-  .catch((err) => {
-    // alert(err);
-  });
-
-function handleCommentPostById(postID, data) {
-  const commentOnPost = async () => {
-    try {
-      const response = await fetch(
-        `${COMMENT_ON_POST_BY_ID}/${postID}/comment`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${getToken()}`,
-          },
-          body: JSON.stringify(data),
-        },
-      );
-      if (response.status === 200) {
-        getAllPosts(SORTING_POSTS_ENDPOINT);
-      }
-    } catch (error) {
-      alert(error);
-    }
-  };
-  commentOnPost();
-}
-
 const displayPosts = (data) => {
   const HTML_POSTS = data
     .map(({ body, title, created, _count, media, author, comments, id }) => {
@@ -127,8 +17,10 @@ const displayPosts = (data) => {
         return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
       }
 
-      if (!isImage(media)) {
-        media = '';
+      let mediaPicture = media;
+
+      if (!isImage(mediaPicture)) {
+        mediaPicture = '';
       }
 
       let profilePicture = author.avatar;
@@ -209,7 +101,7 @@ const displayPosts = (data) => {
               />
             </div>
             <p>${body}</p>
-            <img src="${media}" />
+            <img src="${mediaPicture}" />
             <div class="flex flex-col gap-2">
               <div class="flex items-center gap-2 text-[#868686] text-sm">
                 <p>${_count.comments} comments</p>
@@ -247,3 +139,114 @@ const displayPosts = (data) => {
 
   postHandler.innerHTML = HTML_POSTS;
 };
+
+if (!getToken()) {
+  window.location.href = '/login.html';
+}
+
+searchInputPc.addEventListener('keyup', (e) => {
+  const searchValue = e.target.value;
+  searchInputMobile.value = e.target.value;
+
+  const filteredData = postData.filter(
+    ({ title, body }) =>
+      title.toLowerCase().includes(searchValue) ||
+      body.toLowerCase().includes(searchValue),
+  );
+  displayPosts(filteredData);
+});
+
+searchInputMobile.addEventListener('keyup', (e) => {
+  const searchValue = e.target.value;
+  searchInputPc.value = e.target.value;
+
+  const filteredData = postData.filter(
+    ({ title, body }) =>
+      title.toLowerCase().includes(searchValue) ||
+      body.toLowerCase().includes(searchValue),
+  );
+  displayPosts(filteredData);
+});
+
+const sortPostsDropdown = document.querySelector('#sortPosts');
+
+const SORTING_POSTS_ENDPOINT = 'sort=created&sortOrder=desc';
+
+async function getAllPosts(endpoint) {
+  const response = await fetch(`${GET_POSTS_ENDPOINT}${endpoint}`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  });
+
+  if (response.ok) {
+    postData = await response.json();
+    displayPosts(postData);
+  } else {
+    const err = await response.json();
+    throw new Error(err);
+  }
+}
+
+sortPostsDropdown.addEventListener('change', () => {
+  const dropdownValue =
+    sortPostsDropdown.options[sortPostsDropdown.selectedIndex].value;
+  let endpoint = SORTING_POSTS_ENDPOINT;
+  if (dropdownValue === 'createdDesc') {
+    endpoint = 'sort=created&sortOrder=desc';
+  } else if (dropdownValue === 'createdAsc') {
+    endpoint = 'sort=created&sortOrder=asc';
+  } else if (dropdownValue === 'titleDesc') {
+    endpoint = 'sort=title&sortOrder=desc';
+  } else if (dropdownValue === 'titleAsc') {
+    endpoint = 'sort=title&sortOrder=asc';
+  }
+  getAllPosts(endpoint);
+});
+
+function handleCommentPostById(postID, data) {
+  const commentOnPost = async () => {
+    try {
+      const response = await fetch(
+        `${COMMENT_ON_POST_BY_ID}/${postID}/comment`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${getToken()}`,
+          },
+          body: JSON.stringify(data),
+        },
+      );
+      if (response.status === 200) {
+        getAllPosts(SORTING_POSTS_ENDPOINT);
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+  commentOnPost();
+}
+
+getAllPosts(SORTING_POSTS_ENDPOINT)
+  .then(() => {
+    const commentForm = document.querySelectorAll('#commentForm');
+    const comment = document.querySelectorAll('#comment');
+
+    for (let i = 0; i < commentForm.length; i += 1) {
+      commentForm[i].addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const data = {
+          body: comment[i].value,
+        };
+
+        handleCommentPostById(comment[i].dataset.id, data);
+      });
+    }
+  })
+  .then(() => {})
+  .catch((err) => {
+    alert(err);
+  });
