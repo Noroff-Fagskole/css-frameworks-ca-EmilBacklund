@@ -4,6 +4,7 @@ import {
   saveTokenInLocalStorage,
   saveUserInLocalStorage,
 } from './helpers/localStorage';
+import logInUser from './helpers/logInUser';
 
 const loginForm = document.querySelector('#loginForm');
 
@@ -20,6 +21,7 @@ const generalErrorMessage = document.querySelector('#generalErrorMessage');
 
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  generalErrorMessage.innerHTML = '';
 
   let isEmail = false;
   if (loginEmail.value.trim().length > 0) {
@@ -53,34 +55,17 @@ loginForm.addEventListener('submit', (event) => {
       password: loginPassword.value,
     };
 
-    (async function loginUser() {
-      const response = await fetch(LOGIN_USER_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
+    const userLoginEndpoint = `${LOGIN_USER_ENDPOINT}`;
 
-      if (response.ok) {
-        const data = await response.json();
-
-        saveTokenInLocalStorage(data.accessToken);
-
-        const saveUser = {
-          name: data.name,
-          email: data.email,
-        };
-
-        saveUserInLocalStorage(saveUser);
+    logInUser(userLoginEndpoint, userData)
+      .then((loginUserData) => {
+        saveUserInLocalStorage(loginUserData.saveUser);
+        saveTokenInLocalStorage(loginUserData.accessToken);
         window.location.href = '/index.html';
-      } else {
-        const err = await response.json();
-        throw new Error(err.message);
-      }
-    })().catch((error) => {
-      generalErrorMessage.innerHTML = `${error}`;
-      generalErrorMessage.classList.add('text-red-400');
-    });
+      })
+      .catch((errorMessage) => {
+        generalErrorMessage.innerHTML = `${errorMessage}`;
+        generalErrorMessage.classList.add('text-red-400');
+      });
   }
 });
