@@ -65,7 +65,7 @@ async function getUserPosts() {
     let profileAvatar = jsonResponse.avatar;
 
     if (!profileAvatar) {
-      profileAvatar = '/svg/noAvatar.svg';
+      profileAvatar = '/images/noAvatar.svg';
     }
 
     for (let i = 0; i < posts.length; i += 1) {
@@ -100,7 +100,7 @@ async function getUserPosts() {
           <div class="flex flex-col justify-between">
             <div>
               <div class="flex gap-2 xl:gap-5">
-                
+
                   <p>${posts[i].owner}</p>
                 <img src="svg/favourite_active.svg" alt="" />
               </div>
@@ -121,8 +121,8 @@ async function getUserPosts() {
                 src="svg/kebab_menu.svg"
                 alt=""
               />
-              <div modal-id="${posts[i].id}" class="postOptionModal flex-col gap-5 absolute pointer-events-none -translate-x-3 right-0 shadow-3xl bg-[#282828] hidden p-5">
-              <button data-id="${posts[i].id}" 
+              <div id="${posts[i].id}" class="postOptionModal flex-col gap-5 absolute pointer-events-none -translate-x-3 right-0 shadow-3xl bg-[#282828] hidden p-5">
+              <button data-id="${posts[i].id}"
               class="delete-post-btn bg-[#BC4848] pointer-events-auto h-[38px] whitespace-nowrap w-full rounded-[10px] px-5">Delete Post
               </button>
               <a href="/editPost.html?post_id=${posts[i].id}">
@@ -135,7 +135,7 @@ async function getUserPosts() {
           </div>
         </div>
         <p>${posts[i].body}</p>
-        <img src="${posts[i].media}" />
+        <img src="${posts[i].media}"  alt=""/>
         <div class="flex flex-col gap-2">
           <div class="flex items-center gap-2 text-[#868686] text-sm">
             <p> comments</p>
@@ -151,8 +151,8 @@ async function getUserPosts() {
             <img src="svg/something.svg" alt="" />
           </div>
             <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
-                 
-          
+
+
         </div>
         <div class="flex gap-2 xl:gap-5 relative items-center">
           <img class="rounded-full w-8 h-8 object-cover" src="${profileAvatar}" alt="" />

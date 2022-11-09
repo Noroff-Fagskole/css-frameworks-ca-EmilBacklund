@@ -31,7 +31,7 @@ async function postDetail() {
   const totalReactions = data._count.reactions; // eslint-disable-line no-underscore-dangle
 
   if (!data.author.avatar) {
-    profilePicture = 'svg/noAvatar.svg';
+    profilePicture = 'images/noAvatar.svg';
   }
 
   const createdDate = data.created;
@@ -53,7 +53,7 @@ async function postDetail() {
 
   function printOutHtml() {
     let commentSection = '';
-    let avatar = '<img src="svg/noAvatar.svg" alt="" />';
+    let avatar = '<img src="images/noAvatar.svg" alt="" />';
 
     if (data.author.avatar) {
       avatar = `<img class="rounded-full h-8 w-8" src="${data.author.avatar}" alt="" />`;
@@ -123,9 +123,9 @@ async function postDetail() {
               <img src="svg/something.svg" alt="" />
             </div>
               <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
-                   
+
                    ${printOutHtml()}
-            
+
           </div>
           <div class="flex gap-2 xl:gap-5 relative">
             <img src="svg/king_frog.svg" alt="" />

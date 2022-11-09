@@ -76,9 +76,11 @@ loginForm.addEventListener('submit', (event) => {
         window.location.href = '/index.html';
       } else {
         const err = await response.json();
-        throw new Error(err.message);
+        console.log(err.errors[0].message)
+        throw new Error(err.errors[0].message);
       }
     })().catch((error) => {
+      console.log("error: ",error)
       generalErrorMessage.innerHTML = `${error}`;
       generalErrorMessage.classList.add('text-red-400');
     });

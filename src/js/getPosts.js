@@ -26,7 +26,8 @@ const displayPosts = (data) => {
       let profilePicture = author.avatar;
 
       if (!isImage(profilePicture)) {
-        profilePicture = 'svg/noAvatar.svg';
+
+          profilePicture = 'images/noAvatar.svg';
       }
 
       const createdDate = created;
@@ -48,7 +49,7 @@ const displayPosts = (data) => {
 
       function printOutHtml() {
         let commentSection = '';
-        let avatar = '<img src="svg/noAvatar.svg" alt="" />';
+        let avatar = '<img src="images/noAvatar.svg" alt="" />';
 
         // TODO need to fix avatar image to correct user
         if (isImage(author.avatar)) {

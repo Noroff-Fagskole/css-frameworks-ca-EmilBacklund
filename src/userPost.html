@@ -11,43 +11,46 @@
       rel="stylesheet"
     />
     <title>User post</title>
+    <script type="module" src="js/index.js" defer></script>
   </head>
   <body class="bg-[#1A1A1A] text-white font-josefin mb-5">
     <div
       class="fixed z-10 hidden xl:flex h-24 max-w-[1240px] w-[90%] mx-auto bg-[#1A1A1A] left-1/2 -translate-x-1/2"
     >
-      <input
-        class="absolute top-1/2 -translate-y-1/2 max-w-[295px] min-w-[295px] h-10 rounded-[10px] bg-[#282828] indent-10"
-        type="search"
-        placeholder="Search.."
-      />
+      <label>
+        <input
+          class="absolute top-1/2 -translate-y-1/2 max-w-[295px] min-w-[295px] h-10 rounded-[10px] bg-[#282828] indent-10"
+          type="search"
+          placeholder="Search.."
+        />
+      </label>
       <img
         class="absolute top-1/2 -translate-y-1/2 left-2"
-        src="svg/search_pc.svg"
+        src="search_pc.svg"
         alt=""
       />
       <div
         class="absolute left-1/2 -translate-x-1/2 flex gap-7 top-1/2 -translate-y-1/2"
       >
         <a href="/index.html"
-          ><img class="cursor-pointer" src="svg/home.svg" alt=""
+          ><img class="cursor-pointer" src="home.svg" alt=""
         /></a>
-        <img class="cursor-pointer" src="svg/message.svg" alt="" />
-        <img class="cursor-pointer" src="svg/notification.svg" alt="" />
-        <img class="cursor-pointer" src="svg/heart.svg" alt="" />
+        <img class="cursor-pointer" src="message.svg" alt="" />
+        <img class="cursor-pointer" src="notification.svg" alt="" />
+        <img class="cursor-pointer" src="heart.svg" alt="" />
       </div>
       <a
         href="index.html"
         class="cursor-pointer flex gap-2 absolute right-[193.51px] translate-x-1/2 top-1/2 -translate-y-1/2"
       >
         <p class="font-julius text-2xl">ARTFRIENDER</p>
-        <img src="svg/logo.svg" alt="" />
+        <img src="logo.svg" alt="" />
       </a>
       <div
         id="logOutBtn"
         class="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer"
       >
-        <img src="svg/logout.svg" alt="" />
+        <img src="logout.svg" alt="" />
       </div>
     </div>
     <div
@@ -57,14 +60,14 @@
         class="absolute flex justify-between max-w-[1240px] ml-2 mx-auto sm:w-[90%] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full sm:ml-0"
       >
         <div class="flex gap-2">
-          <a href="/index.html"><img src="svg/logo.svg" alt=""/></a>
-          <img src="svg/search.svg" alt="" />
-          <img src="svg/menu.svg" alt="" />
+          <a href="/index.html"><img src="logo.svg" alt=""/></a>
+          <img src="search.svg" alt="" />
+          <img src="menu.svg" alt="" />
         </div>
         <div class="flex gap-2 -translate-x-5 sm:-translate-x-0">
-          <img src="svg/message.svg" alt="" />
-          <img src="svg/notification.svg" alt="" />
-          <img src="svg/king_frog.svg" alt="" />
+          <img src="message.svg" alt="" />
+          <img src="notification.svg" alt="" />
+          <img src="king_frog.svg" alt="" />
         </div>
       </div>
     </div>
@@ -80,7 +83,6 @@
       </div>
       <!-- Recent Activity -->
     </div>
-    <script type="module" src="js/index.js" defer></script>
     <script type="module" src="js/getPostById.js"></script>
   </body>
 </html>

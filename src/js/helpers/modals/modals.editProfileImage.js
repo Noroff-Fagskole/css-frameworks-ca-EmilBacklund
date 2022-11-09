@@ -6,7 +6,7 @@ function editModal() {
   editProfileModal.classList.remove('hidden');
 }
 
-if (editProfileBtn) {
+if (editProfileBtn) { // to avoid console errors
   editProfileBtn.addEventListener('click', editModal);
 
   editProfileClose.addEventListener('click', () =>
