@@ -65,7 +65,7 @@ async function getUserPosts() {
     let profileAvatar = jsonResponse.avatar;
 
     if (!profileAvatar) {
-      profileAvatar = '/svg/noAvatar.svg';
+      profileAvatar = 'images/noAvatar.svg';
     }
 
     for (let i = 0; i < posts.length; i += 1) {
@@ -102,7 +102,7 @@ async function getUserPosts() {
               <div class="flex gap-2 xl:gap-5">
                 
                   <p>${posts[i].owner}</p>
-                <img src="svg/favourite_active.svg" alt="" />
+                <img src="images/favourite_active.svg" alt="" />
               </div>
               <p class="text-sm text-[#868686]">@CuteOwl</p>
             </div>
@@ -118,7 +118,7 @@ async function getUserPosts() {
               <img
               data-type="${posts[i].id}"
                 class="postOption"
-                src="svg/kebab_menu.svg"
+                src="images/kebab_menu.svg"
                 alt=""
               />
               <div modal-id="${posts[i].id}" class="postOptionModal flex-col gap-5 absolute pointer-events-none -translate-x-3 right-0 shadow-3xl bg-[#282828] hidden p-5">
@@ -146,9 +146,9 @@ async function getUserPosts() {
           </div>
           <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
           <div class="flex gap-2 xl:gap-5">
-            <img src="svg/heart_active.svg" alt="" />
-            <img src="svg/share.svg" alt="" />
-            <img src="svg/something.svg" alt="" />
+            <img src="images/heart_active.svg" alt="" />
+            <img src="images/share.svg" alt="" />
+            <img src="images/something.svg" alt="" />
           </div>
             <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
                  
@@ -163,7 +163,7 @@ async function getUserPosts() {
           />
           <img
             class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
-            src="svg/add_photo.svg"
+            src="images/add_photo.svg"
             alt=""
           />
         </div>

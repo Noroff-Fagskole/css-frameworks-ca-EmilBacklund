@@ -26,7 +26,7 @@ const displayPosts = (data) => {
       let profilePicture = author.avatar;
 
       if (!isImage(profilePicture)) {
-        profilePicture = 'svg/noAvatar.svg';
+        profilePicture = 'images/noAvatar.svg';
       }
 
       const createdDate = created;
@@ -48,7 +48,7 @@ const displayPosts = (data) => {
 
       function printOutHtml() {
         let commentSection = '';
-        let avatar = '<img src="svg/noAvatar.svg" alt="" />';
+        let avatar = '<img src="images/noAvatar.svg" alt="" />';
 
         // TODO need to fix avatar image to correct user
         if (isImage(author.avatar)) {
@@ -82,7 +82,7 @@ const displayPosts = (data) => {
                 <div>
                   <div class="flex gap-2 xl:gap-5">
                     <p>${author.name}</p>
-                    <img src="svg/favourite_active.svg" alt="" />
+                    <img src="images/favourite_active.svg" alt="" />
                   </div>
                   <p class="text-sm text-[#868686]">@CuteOwl</p>
                 </div>
@@ -96,7 +96,7 @@ const displayPosts = (data) => {
               <img
               id="postOptions"
                 class="absolute top-0 right-0 pointer"
-                src="svg/kebab_menu.svg"
+                src="images/kebab_menu.svg"
                 alt=""
               />
             </div>
@@ -112,9 +112,9 @@ const displayPosts = (data) => {
               </div>
               <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
               <div class="flex gap-2 xl:gap-5">
-                <img src="svg/heart_active.svg" alt="" />
-                <img src="svg/share.svg" alt="" />
-                <img src="svg/something.svg" alt="" />
+                <img src="images/heart_active.svg" alt="" />
+                <img src="images/share.svg" alt="" />
+                <img src="images/something.svg" alt="" />
               </div>
                 <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
                      ${printOutHtml()}

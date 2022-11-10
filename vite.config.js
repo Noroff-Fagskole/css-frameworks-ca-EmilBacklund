@@ -1,7 +1,12 @@
 const { resolve } = require('path');
+import { defineConfig } from "vite";
 
-export default {
+export default defineConfig ({
   root: resolve(__dirname, 'src'),
+  publicDir: resolve("public"),
+  preview: {
+    host: true,
+  },
   build: {
     rollupOptions: {
       input: {
@@ -13,8 +18,8 @@ export default {
       },
     },
     outDir: '../dist',
+    emptyOutDir : true
   },
-  
   resolve: {
     alias: {},
   },
@@ -22,4 +27,4 @@ export default {
     port: 8080,
     hot: true,
   },
-};
+});
