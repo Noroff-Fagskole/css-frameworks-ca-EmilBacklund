@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import localstorage from '../../../localstorage';
 import clearStorage from '../helpers/clearStorage';
 

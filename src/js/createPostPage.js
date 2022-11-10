@@ -1,5 +1,6 @@
 import { getToken } from './helpers/localStorage';
 import { CREATE_POST_ENDPOINT } from './settings/api';
+import createPost from './helpers/createPost';
 
 const createPostFrom = document.querySelector('#createPostForm');
 const profilePagePostError = document.querySelector('#emptyPostNotification');
@@ -28,31 +29,18 @@ createPostFrom.addEventListener('submit', (event) => {
       body: postBody.value,
     };
 
-    (async function createPost() {
-      const response = await fetch(CREATE_POST_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${getToken()}`,
-        },
-        body: JSON.stringify(postData),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        // window.location.reload();
+    createPost(CREATE_POST_ENDPOINT, getToken(), postData).then((response) => {
+      if (!response) {
+        createPostFrom.reset();
+        if (profilePagePostError) {
+          profilePagePostError.innerHTML = `creating post failed`;
+          profilePagePostError.classList.remove('hidden');
+        } else if (homePagePostError) {
+          homePagePostError.innerHTML = `creating post failed`;
+          homePagePostError.classList.remove('hidden');
+        }
       } else {
-        const message = 'Creating post failed';
-        throw new Error(message);
-      }
-      createPostFrom.reset();
-    })().catch((err) => {
-      if (profilePagePostError) {
-        profilePagePostError.innerHTML = `${err}`;
-        profilePagePostError.classList.remove('hidden');
-      } else if (homePagePostError) {
-        homePagePostError.innerHTML = `${err}`;
-        homePagePostError.classList.remove('hidden');
+        window.location.reload();
       }
     });
   }

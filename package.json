@@ -14,7 +14,7 @@
     "prettier-check": "npx prettier --check ./**/*.{js,html}",
     "prepare": "husky install",
     "scriptname": "cmd",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
