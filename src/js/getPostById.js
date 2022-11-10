@@ -53,7 +53,7 @@ async function postDetail() {
 
   function printOutHtml() {
     let commentSection = '';
-    let avatar = '<img src="svg/noAvatar.svg" alt="" />';
+    let avatar = '<img src="images/noAvatar.svg" alt="" />';
 
     if (data.author.avatar) {
       avatar = `<img class="rounded-full h-8 w-8" src="${data.author.avatar}" alt="" />`;
@@ -88,7 +88,7 @@ async function postDetail() {
               <div>
                 <div class="flex gap-2 xl:gap-5">
                   <p>${data.author.name}</p>
-                  <img src="svg/favourite_active.svg" alt="" />
+                  <img src="images/favourite_active.svg" alt="" />
                 </div>
                 <p class="text-sm text-[#868686]">@CuteOwl</p>
               </div>
@@ -102,7 +102,7 @@ async function postDetail() {
             <img
             id="postOptions"
               class="absolute top-0 right-0 pointer"
-              src="svg/kebab_menu.svg"
+              src="images/kebab_menu.svg"
               alt=""
             />
           </div>
@@ -118,9 +118,9 @@ async function postDetail() {
             </div>
             <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
             <div class="flex gap-2 xl:gap-5">
-              <img src="svg/heart_active.svg" alt="" />
-              <img src="svg/share.svg" alt="" />
-              <img src="svg/something.svg" alt="" />
+              <img src="images/heart_active.svg" alt="" />
+              <img src="images/share.svg" alt="" />
+              <img src="images/something.svg" alt="" />
             </div>
               <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
                    
@@ -128,7 +128,7 @@ async function postDetail() {
             
           </div>
           <div class="flex gap-2 xl:gap-5 relative">
-            <img src="svg/king_frog.svg" alt="" />
+            <img src="images/king_frog.svg" alt="" />
             <input
               class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
               type="text"
@@ -136,7 +136,7 @@ async function postDetail() {
             />
             <img
               class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
-              src="svg/add_photo.svg"
+              src="images/add_photo.svg"
               alt=""
             />
           </div>

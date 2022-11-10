@@ -38,7 +38,7 @@ async function getPostById() {
   postMedia.value = data.media;
   authorName.innerHTML = data.author.name;
   if (!data.author.avatar) {
-    authorAvatar.src = '/svg/noAvatar.svg';
+    authorAvatar.src = 'images/noAvatar.svg';
   } else {
     authorAvatar.src = data.author.avatar;
   }
