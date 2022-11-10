@@ -140,10 +140,6 @@ const displayPosts = (data) => {
   postHandler.innerHTML = HTML_POSTS;
 };
 
-if (!getToken()) {
-  window.location.href = '/login.html';
-}
-
 searchInputPc.addEventListener('keyup', (e) => {
   const searchValue = e.target.value;
   searchInputMobile.value = e.target.value;
@@ -248,5 +244,9 @@ getAllPosts(SORTING_POSTS_ENDPOINT)
   })
   .then(() => {})
   .catch((err) => {
-    alert(err);
+    if (!getToken()) {
+      window.location.href = '/login.html';
+    } else {
+      alert(err);
+    }
   });

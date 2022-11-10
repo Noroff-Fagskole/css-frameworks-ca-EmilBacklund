@@ -30,14 +30,9 @@ function getToken() {
   return null;
 }
 
-function clearStorage() {
-  localStorage.clear();
-}
-
 export {
   saveTokenInLocalStorage,
   saveUserInLocalStorage,
   getUserNameInLocalStorage,
   getToken,
-  clearStorage,
 };
