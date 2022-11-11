@@ -52,7 +52,6 @@ async function getUserPosts() {
     profileImg.value = jsonResponse.avatar;
     bannerImg.value = jsonResponse.banner;
 
-    mobileAvatar.src = jsonResponse.avatar;
     if (jsonResponse.banner) {
       bannerImage.src = jsonResponse.banner;
     }
@@ -60,6 +59,7 @@ async function getUserPosts() {
     if (jsonResponse.avatar) {
       mainAvatarImg.src = jsonResponse.avatar;
       shareAvatar.src = jsonResponse.avatar;
+      mobileAvatar.src = jsonResponse.avatar;
     }
 
     let profileAvatar = jsonResponse.avatar;

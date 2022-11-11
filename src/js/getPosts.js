@@ -100,7 +100,7 @@ const displayPosts = (data) => {
                 alt=""
               />
             </div>
-            <p>${body}</p>
+            <p data-cy=${author.name}>${body}</p>
             <img src="${mediaPicture}" />
             <div class="flex flex-col gap-2">
               <div class="flex items-center gap-2 text-[#868686] text-sm">

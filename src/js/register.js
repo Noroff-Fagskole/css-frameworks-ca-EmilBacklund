@@ -21,6 +21,7 @@ const emailErrorNotValid = document.querySelector('#emailErrorNotValid');
 const generalErrorMessage = document.querySelector('#generalErrorMessage');
 
 const allInput = document.querySelectorAll('#contactForm input');
+const modalSelection = document.querySelector('#modal');
 
 for (let i = 0; i < allInput.length; i += 1) {
   allInput[i].addEventListener('click', (event) => {
@@ -155,13 +156,15 @@ contactForm.addEventListener('submit', (event) => {
 
       if (response.ok) {
         const data = await response.json();
+        modalSelection.classList.add('hidden');
+        modalSelection.classList.remove('modal-active');
         return data;
       }
       const err = await response.json();
-      const message = `An error occurred: ${err.message}`;
+      const message = `${err.errors[0].message}`;
       throw new Error(message);
     })().catch((err) => {
-      generalErrorMessage.innerHTML = `Request failed! ${err.message}`;
+      generalErrorMessage.innerHTML = `Request failed! ${err}`;
     });
   } else {
     generalErrorMessage.innerHTML = 'Create account failed 😥';
