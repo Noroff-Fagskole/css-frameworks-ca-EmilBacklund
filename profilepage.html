@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Julius+Sans+One&family=Kanit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>CA CSS Framework</title>
+  </head>
+  <body class="bg-[#1A1A1A] text-white font-josefin mb-5">
+    <div
+      class="fixed z-10 hidden xl:flex h-24 max-w-[1240px] w-[90%] mx-auto bg-[#1A1A1A] left-1/2 -translate-x-1/2"
+    >
+      <input
+        class="absolute top-1/2 -translate-y-1/2 max-w-[295px] min-w-[295px] h-10 rounded-[10px] bg-[#282828] indent-10"
+        type="search"
+        placeholder="Search.."
+      />
+      <img
+        class="absolute top-1/2 -translate-y-1/2 left-2"
+        src="svg/search_pc.svg"
+        alt=""
+      />
+      <div
+        class="absolute left-1/2 -translate-x-1/2 flex gap-7 top-1/2 -translate-y-1/2"
+      >
+        <a href="homepage.html"
+          ><img class="cursor-pointer" src="svg/home.svg" alt=""
+        /></a>
+        <img class="cursor-pointer" src="svg/message.svg" alt="" />
+        <img class="cursor-pointer" src="svg/notification.svg" alt="" />
+        <img class="cursor-pointer" src="svg/heart.svg" alt="" />
+      </div>
+      <a
+        href="homepage.html"
+        class="cursor-pointer flex gap-2 absolute right-[193.51px] translate-x-1/2 top-1/2 -translate-y-1/2"
+      >
+        <p class="font-julius text-2xl">ARTFRIENDER</p>
+        <img src="svg/logo.svg" alt="" />
+      </a>
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer">
+        <a href="index.html"><img src="svg/logout.svg" alt="" /></a>
+      </div>
+    </div>
+    <div
+      class="h-20 xl:hidden fixed top-0 bg-[#1A1A1A] max-w-[1240px] w-full z-10"
+    >
+      <div
+        class="absolute flex justify-between max-w-[1240px] ml-2 mx-auto sm:w-[90%] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full sm:ml-0"
+      >
+        <div class="flex gap-2">
+          <img src="svg/logo.svg" alt="" />
+          <img src="svg/search.svg" alt="" />
+          <img src="svg/menu.svg" alt="" />
+        </div>
+        <div class="flex gap-2 -translate-x-5 sm:-translate-x-0">
+          <img src="svg/message.svg" alt="" />
+          <img src="svg/notification.svg" alt="" />
+          <img src="svg/king_frog.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="sm:flex gap-5 max-w-[1240px] mx-auto sm:w-[90%] xl:translate-y-24 translate-y-20"
+    >
+      <div
+        class="sticky top-0 sm:flex flex-col max-w-[295px] xl:min-w-[295px] w-full hidden gap-5 h-[calc(100vh-100px)] xl:h-[calc(100vh-116px)]"
+      >
+        <div
+          class="w-full min-h-[320px] bg-[#282828] rounded-[20px] overflow-y-scroll p-5 scrollbar"
+        >
+          <p class="mb-2">Profile Info</p>
+          <div class="flex flex-col gap-5">
+            <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+
+            <div class="flex items-center gap-5 cursor-pointer">
+              <img src="svg/gallery.svg" alt="" />
+              <p>Gallery</p>
+            </div>
+            <div class="flex items-center gap-5 cursor-pointer">
+              <img src="svg/collection.svg" alt="" />
+              <p>Collections</p>
+            </div>
+            <div class="flex items-center gap-5 cursor-pointer">
+              <img src="svg/commission.svg" alt="" />
+              <p>Commission</p>
+            </div>
+            <p class="mb-2">Personal Information</p>
+          </div>
+          <div class="flex flex-col gap-5">
+            <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+            <p>Location: <span class="text-[#868686]">Oslo, Norway</span></p>
+            <p>
+              Studies at:
+              <span class="text-[#868686]"
+                >Noroff School of technology and digital media</span
+              >
+            </p>
+          </div>
+        </div>
+        <div
+          class="scrollbar overflow-y-scroll text-sm p-5 max-w-[295px] w-full rounded-[20px] h-[559px] bg-[#282828]"
+        >
+          <p class="text-base">Contacts</p>
+          <div class="w-full h-0.5 bg-[#2C2C2C] my-2"></div>
+          <div class="flex flex-col gap-5 leading-[14px]">
+            <div class="flex items-center gap-5">
+              <img src="svg/favourite_active.svg" alt="" />
+              <p class="text-[#868686]">Favourites</p>
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/alex_phile.svg" alt="" />
+                <p>Alex Phile</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_active.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/rachelle_nona.svg" alt="" />
+                <p>Rachelle Nona</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_active.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/gladwin_keith.svg" alt="" />
+                <p>Gladwin Keith</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_active.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/ivar_patritsiya.svg" alt="" />
+                <p>Ivar Patritsiya</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_active.svg"
+                alt=""
+              />
+            </div>
+            <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/rama_melville.svg" alt="" />
+                <p>Rama Melville</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/matilda_hoshi.svg" alt="" />
+                <p>Matilda Hoshi</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/edvard_keara.svg" alt="" />
+                <p>Edvard Keara</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/clara_sanaa.svg" alt="" />
+                <p>Clara Sanaa</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5 items-center cursor-pointer">
+                <img src="svg/simona_metody.svg" alt="" />
+                <p>Simona Metody</p>
+              </div>
+              <img
+                class="cursor-pointer"
+                src="svg/favourite_unchecked.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Middle section -->
+      <div class="flex-1">
+        <div
+          class="mb-2 sm:mb-5 w-full h-[320px] sm:ml-0 bg-[#282828] rounded-[20px] overflow-hidden relative"
+        >
+          <img
+            class="rounded-[10px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            src="svg/king_frog_lg.svg"
+            alt=""
+          />
+          <div class="h-1/2">
+            <img
+              class="h-full object-cover w-full"
+              src="svg/banner_img_lg.svg"
+              alt=""
+            />
+          </div>
+          <div class="px-5 pt-4 pb-5 h-1/2">
+            <div class="flex justify-between mb-[12px]">
+              <div class="flex flex-col items-center">
+                <p class="leading-4">596</p>
+                <p class="text-sm text-[#868686] leading-[14px]">Followers</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <p class="leading-4">402</p>
+                <p class="text-sm text-[#868686] leading-[14px]">Following</p>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <div class="flex flex-col items-center">
+                <p class="leading-4 mb-2">Emil Backlund</p>
+                <p class="text-sm text-[#868686] leading-[14px] mb-4">
+                  @KingFrog
+                </p>
+              </div>
+            </div>
+            <div class="flex justify-between gap-2">
+              <button
+                class="bg-[#868686] w-[117px] rounded-[10px] text-sm leading-[30px] h-[30px] flex gap-2 items-center text-center justify-center"
+              >
+                <img src="svg/edit.svg" alt="" />Edit Profile
+              </button>
+              <button
+                class="bg-[#BC4848] w-[117px] rounded-[10px] text-sm leading-[30px] h-[30px] flex gap-2 items-center text-center justify-center"
+              >
+                <img src="svg/add_story.svg" alt="" />Add Story
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="bg-[#282828] p-5 leading-4 rounded-[20px] mb-2 sm:hidden">
+          <p class="mb-2">Profile Info</p>
+          <div class="flex flex-col gap-5">
+            <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+
+            <div class="flex items-center gap-5 cursor-pointer">
+              <img src="svg/gallery.svg" alt="" />
+              <p>Gallery</p>
+            </div>
+            <div class="flex items-center gap-5 cursor-pointer">
+              <img src="svg/collection.svg" alt="" />
+              <p>Collections</p>
+            </div>
+            <div class="flex items-center gap-5 cursor-pointer">
+              <img src="svg/commission.svg" alt="" />
+              <p>Commission</p>
+            </div>
+            <p class="mb-2">Personal Information</p>
+          </div>
+          <div class="flex flex-col gap-5">
+            <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+            <p>Location: <span class="text-[#868686]">Oslo, Norway</span></p>
+            <p>
+              Studies at:
+              <span class="text-[#868686]"
+                >Noroff School of technology and digital media</span
+              >
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 sm:gap-5">
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] xl:px-5">
+            <div class="flex flex-col gap-2 xl:gap-[18px]">
+              <div class="flex gap-2 xl:gap-5">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Share something with your friends.."
+                />
+              </div>
+              <div class="w-full h-0.5 bg-[#2C2C2C] xl:hidden"></div>
+              <div
+                class="flex justify-between text-sm xsm:text-base gap-2 flex-wrap"
+              >
+                <div
+                  class="flex px-2 bg-[#222222] py-2.5 rounded-[10px] gap-2 xl:px-5"
+                >
+                  <img src="svg/photo.svg" alt="" />
+                  <p>Photo</p>
+                </div>
+                <div
+                  class="flex px-2 bg-[#222222] py-2.5 rounded-[10px] gap-2 xl:px-5"
+                >
+                  <img src="svg/video.svg" alt="" />
+                  <p>Video</p>
+                </div>
+                <div
+                  class="flex px-2 bg-[#222222] py-2.5 rounded-[10px] gap-2 xl:px-5"
+                >
+                  <img src="svg/poll.svg" alt="" />
+                  <p>Poll</p>
+                </div>
+                <div
+                  class="flex px-2 bg-[#222222] py-2.5 rounded-[10px] gap-2 xl:px-5"
+                >
+                  <img src="svg/live.svg" alt="" />
+                  <p>Live</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-2 bg-[#282828] rounded-[20px] sm:mx-0 xl:px-5">
+            <p class="mb-2">Posts</p>
+            <div class="w-full h-0.5 bg-[#2C2C2C] mb-5"></div>
+            <div class="flex flex-col gap-2 xl:gap-5">
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/king_frog_lg.svg" alt="" />
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex gap-2 xl:gap-5">
+                      <p>Emil Backlund</p>
+                    </div>
+                    <p class="text-sm text-[#868686]">@KingFrog</p>
+                  </div>
+                  <div class="flex gap-2 items-center">
+                    <div
+                      class="w-[5px] h-[5px] bg-[#BC4848] rounded-[5px]"
+                    ></div>
+                    <p class="text-[#BC4848]">11 minutes ago</p>
+                  </div>
+                </div>
+                <img
+                  class="absolute top-0 right-0"
+                  src="svg/kebab_menu.svg"
+                  alt=""
+                />
+              </div>
+              <p>
+                Just played an old video game from when I was young, definitely
+                doesn’t look like I remembered it 🤣
+              </p>
+              <img src="svg/tiger.svg" alt="" />
+              <div class="flex flex-col gap-2">
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+                <div class="flex gap-2 xl:gap-5">
+                  <img src="svg/heart_active.svg" alt="" />
+                  <img src="svg/share.svg" alt="" />
+                  <img src="svg/something.svg" alt="" />
+                </div>
+                <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+              </div>
+              <div class="flex gap-2 xl:gap-5 relative">
+                <img src="svg/king_frog.svg" alt="" />
+                <input
+                  class="text-sm xsm:text-base w-full rounded-[10px] text-[#868686] indent-2 h-[38px] bg-[#222222]"
+                  type="text"
+                  placeholder="Write something.."
+                />
+                <img
+                  class="absolute right-0 top-2/4 -translate-y-2/4 mr-2"
+                  src="svg/add_photo.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Recent Activity -->
+      <div
+        class="sticky top-0 h-[calc(100vh-100px)] xl:h-[calc(100vh-116px)] scrollbar overflow-y-scroll leading-[14px] hidden text-sm xl:flex flex-col gap-2 xl:min-w-[295px] bg-[#282828] rounded-[20px] p-5"
+      >
+        <p class="leading-[16px] text-base">Recent Activity</p>
+        <div class="w-full h-0.5 bg-[#2C2C2C]"></div>
+        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+          <div class="flex justify-between">
+            <div class="flex items-center gap-2">
+              <img src="svg/rachelle_nona.svg" alt="" />
+              <p>Rachelle Nona</p>
+            </div>
+            <img src="svg/favourite_active.svg" alt="" />
+          </div>
+          <div class="flex flex-col gap-2 text-[#868686]">
+            <p>Is now open for commission</p>
+            <p>Price range 20$ - 75$</p>
+          </div>
+          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+            Have a look
+          </button>
+        </div>
+        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+          <div class="flex justify-between">
+            <div class="flex items-center gap-2">
+              <img src="svg/matilda_hoshi.svg" alt="" />
+              <p>Matilda Hoshi</p>
+            </div>
+            <img src="svg/favourite_unchecked.svg" alt="" />
+          </div>
+          <div class="flex flex-col gap-2 text-[#868686]">
+            <div class="flex gap-2">
+              <p>Is now live</p>
+              <img src="svg/live.svg" alt="" />
+            </div>
+            <p>Time spent streaming 0:04:43</p>
+          </div>
+          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+            Watch
+          </button>
+        </div>
+        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+          <div class="flex justify-between">
+            <div class="flex items-center gap-2">
+              <img src="svg/rama_melville.svg" alt="" />
+              <p>Rama Melville</p>
+            </div>
+            <img src="svg/favourite_unchecked.svg" alt="" />
+          </div>
+          <div class="flex flex-col gap-2 text-[#868686]">
+            <p>Is still open for commission</p>
+            <p>Price range 5$ - 10$</p>
+          </div>
+          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+            Have a look
+          </button>
+        </div>
+        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <img src="svg/ivar_patritsiya.svg" alt="" />
+              <p>Ivar Patritsiya</p>
+            </div>
+            <img src="svg/favourite_active.svg" alt="" />
+          </div>
+          <div class="flex flex-col gap-2 text-[#868686]">
+            <p>Ivar’s post is trending</p>
+            <p>11k likes</p>
+          </div>
+          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+            See post
+          </button>
+        </div>
+        <div class="p-5 bg-[#222222] rounded-[10px] flex flex-col gap-5">
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <img src="svg/edvard_keara.svg" alt="" />
+              <p>Edvard Keara</p>
+            </div>
+            <img src="svg/favourite_unchecked.svg" alt="" />
+          </div>
+          <div class="flex flex-col gap-2 text-[#868686]">
+            <p>Is now open for commission</p>
+            <p>Price range 20$ - 75$</p>
+          </div>
+          <button class="h-[38px] w-full rounded-[10px] bg-[#bc4848]">
+            Have a look
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
