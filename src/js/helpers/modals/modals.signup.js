@@ -16,5 +16,3 @@ function closeModal() {
 
 openModalButton.addEventListener('click', openModal);
 closeModalButton.addEventListener('click', closeModal);
-
-export { openModal, closeModal };

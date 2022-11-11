@@ -31,6 +31,7 @@
     "@babel/preset-env": "^7.20.2",
     "autoprefixer": "^10.4.8",
     "babel-jest": "^29.3.1",
+    "cypress": "^11.0.1",
     "eslint": "^8.26.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -45,10 +46,15 @@
     "vite": "^3.0.9"
   },
   "dependencies": {
-    "cypress": "^10.11.0",
     "moment": "^2.29.4"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFiles": [
+      "./src/js/jestTest/jestSetup/setup.js"
+    ]
   }
 }
